@@ -46,7 +46,7 @@ keys = [
              desc='Shutdown Qtile'
              ),
          Key(["control", alt], "l",
-             lazy.spawn("xlock"),
+             lazy.spawn("xflock4"),
              desc='lock screen'
              ),
          Key(["control", "shift"], "e",
@@ -70,6 +70,10 @@ keys = [
          Key([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
          Key([], 'XF86AudioNext', lazy.spawn('playerctl next')),
          Key([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
+         # Print
+         Key([], 'Print',
+             lazy.spawn('xfce4-screenshooter')
+             ),
          # Apps
          Key([mod],  'b',
              lazy.spawn(BROWSER)
@@ -369,24 +373,6 @@ def init_widgets_list():
                        background=colors[0],
                        padding=0
                        ),
-              widget.TextBox(
-                       text='',
-                       background=colors[0],
-                       foreground=colors[4],
-                       padding=0,
-                       fontsize=37
-                       ),
-              widget.Net(
-                       interface="enp6s0",
-                       format='{down} ↓↑ {up}',
-                       foreground=colors[2],
-                       background=colors[4],
-                       padding=5
-                       ),
-              Systray(
-                       background=colors[0],
-                       padding=5
-                       ),
               widget.Sep(
                        linewidth=0,
                        padding=6,
@@ -502,6 +488,22 @@ def init_widgets_list():
                        foreground=colors[2],
                        background=colors[5],
                        format="%A, %B %d - %H:%M "
+                       ),
+              widget.TextBox(
+                       text='',
+                       background=colors[0],
+                       foreground=colors[4],
+                       fontsize=37
+                       ),
+              Systray(
+                       background=colors[0],
+                       padding=5
+                       ),
+              widget.Sep(
+                       linewidth=0,
+                       padding=6,
+                       foreground=colors[0],
+                       background=colors[0]
                        ),
               ]
     return widgets_list
