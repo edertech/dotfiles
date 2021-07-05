@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(typescript
+   '(clojure
+     typescript
      yaml
      haskell
      vimscript
@@ -46,6 +47,8 @@ This function should only modify configuration layer settings."
      (groovy :variables
              groovy-backend 'lsp
              groovy-lsp-jar-path "/usr/share/java/groovy-language-server/groovy-language-server-all.jar")
+     (clojure :variables
+              clojure-backend 'lsp)
      auto-completion
      emacs-lisp
      semantic

@@ -78,6 +78,9 @@ keys = [
          Key([mod],  'b',
              lazy.spawn(BROWSER)
              ),
+         Key([mod], "v",
+             lazy.spawn("vivaldi-stable")
+             ),
          Key([mod], "z",
              lazy.spawn("pcmanfm")
              ),
@@ -251,7 +254,7 @@ group_names = [("WWW", {'layout': 'monadtall'}),
                ("MUS", {'layout': 'monadtall'}),
                ("TOR", {'layout': 'monadtall'}),
                ("VID", {'layout': 'monadtall'}),
-               ("GFX", {'layout': 'floating'})]
+               ("MAIL", {'layout': 'floating'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
