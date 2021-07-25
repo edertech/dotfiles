@@ -66,7 +66,7 @@ set clipboard^=unnamed,unnamedplus
 set scrolloff=999          " the cursor is centered vertically if posible
 set dir=~/tmp              " swap files in a temp dir, not on my repos
 set wildmode=longest,list,full
-set list                   " shows $ at the end of line and ^I instead of tabs.
+" set list                   " shows $ at the end of line and ^I instead of tabs.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Disable arrow keys to learn the hjkl 
