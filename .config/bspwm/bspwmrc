@@ -1,12 +1,13 @@
 #! /bin/sh
 
+$HOME/.config/bspwm/autostart.sh
 
 # monitors
-bspc monitor -d ' Web ' 'Dev ' 'Sys ' 'Doc ' 'Mus ' 'Vid ' 'Tor ' 'Fil ' 'Goo '
+bspc monitor eDP-1 -d I II III IV V VI VII
 
 
 # configs
-bspc config border_width         2
+bspc config border_width         0
 bspc config window_gap           12
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -16,19 +17,8 @@ bspc config pointer_motion_interval 40
 
 # rules
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
 
 # remap keys
 setxkbmap -option ctrl:swapcaps
 setxkbmap -option ctrl:nocaps
-
-
-# autostart
-nitrogen --restore &
-sxhkd -c ~/.config/sxhkd/sxhkdrc &
-xfce4-panel --disable-wm-check 
-picom &
