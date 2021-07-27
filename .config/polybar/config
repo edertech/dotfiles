@@ -59,7 +59,7 @@ modules-right = filesystem pulseaudio battery date powermenu
 
 separator = |
 tray-position = right
-tray-padding = 2
+tray-padding = 10
 
 cursor-click = pointer
 eursor-scroll = ns-resize
