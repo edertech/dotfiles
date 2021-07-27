@@ -2,6 +2,11 @@
 # wm independent hotkeys
 #
 
+function active_monitor {
+    return xrandr | grep -w connected | cut -f '1' -d ' '
+}
+
+
 # terminal emulator
 super + Return
 	terminator
@@ -39,6 +44,9 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# fullscreen
+super + f
+    bspc node --state \~fullscreen
 #
 # state/flags
 #
@@ -144,6 +152,7 @@ super + ctrl + l
 
 # emacs
 super + shift + e
+    emacsclient -c emacs
 
 
 # audio keys (copy from older config)
@@ -182,7 +191,7 @@ XF86AudioStop
 
 #Brightness up
 XF86MonBrightnessUp
-    xbacklight -inc 10
+    xrandr --output $active_monitor --brightness 0.5
 
 #Brightness down
 XF86MonBrightnessDown
