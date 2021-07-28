@@ -3,6 +3,8 @@ zstyle :compinstall filename '/home/ederson/.zshrc'
 autoload -Uz compinit 
 compinit
 
+fpath=(/usr/share/zsh/site-functions $fpath)
+
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/  --work-tree=$HOME'
 
 powerline-daemon -q
