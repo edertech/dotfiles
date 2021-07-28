@@ -4,6 +4,7 @@ $HOME/.config/bspwm/autostart.sh
 
 # monitors
 bspc monitor eDP-1 -d I II III IV V VI VII
+bspc monitor HDMI-1 -d VIII IX
 
 
 # configs

@@ -15,6 +15,14 @@ super + Return
 super + shift + Return
 	dmenu_run -p 'Run: ' -fn 'JetBrainsMono Nerd Font Bold' -nf 'white' -nb 'black'
 
+# rofi menu
+super + p
+    rofi -modi run,drun -show run
+
+# rofi opened programs
+super + Tab
+    rofi -show window
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -152,7 +160,7 @@ super + ctrl + l
 
 # emacs
 super + shift + e
-    emacsclient -c emacs
+    emacsclient -c -a 'emacs'
 
 
 # audio keys (copy from older config)

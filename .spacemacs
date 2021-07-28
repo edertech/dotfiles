@@ -45,9 +45,6 @@ This function should only modify configuration layer settings."
      (python :variables
              python-backend 'lsp
              python-formatter 'yapf)
-     (groovy :variables
-             groovy-backend 'lsp
-             groovy-lsp-jar-path "/usr/share/java/groovy-language-server/groovy-language-server-all.jar")
      (clojure :variables
               clojure-backend 'lsp)
      auto-completion
@@ -253,7 +250,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("UbuntuMono Nerd Font Mono"
+   dotspacemacs-default-font '("JetBrainsMono"
                                :size 14.0
                                :weight extra-bold
                                :width normal)
@@ -549,6 +546,7 @@ dump.")
 (defun dotspacemacs/user-config ()
   (key-chord-mode 1)
   (key-chord-define-global "ii" 'evil-normal-state)
+  (set-default-font "JetBrainsMono")
   (spacemacs/toggle-transparency)
   "Configuration for user code:
 This function is called at the very end of Spacemacs startup, after layer

@@ -64,28 +64,19 @@ tray-padding = 10
 cursor-click = pointer
 eursor-scroll = ns-resize
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-mount-1 = /home
-
-label-mounted =  %free%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
 
 [module/bspwm]
 type = internal/bspwm
 
-ws-icon-0 =   I;
-ws-icon-1 =  II;
-ws-icon-2 = III;
-ws-icon-3 =  IV;
-ws-icon-4 =   V;
-ws-icon-5 =  VI;
-ws-icon-6 = VII;
+ws-icon-0 =    I;
+ws-icon-1 =   II;
+ws-icon-2 =  III;
+ws-icon-3 =   IV;
+ws-icon-4 =    V;
+ws-icon-5 =   VI;
+ws-icon-6 =  VII;
+ws-icon-7 = VIII;
+ws-icon-8 =   IX;
 ws-icon-default = 
 
 label-focused = %icon%
@@ -107,8 +98,22 @@ label-empty-padding = 2
 ; Separator in between workspaces
 label-separator = |
 
+
 [module/xwindow]
 type = internal/xwindow
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+mount-1 = /home
+
+label-mounted =  %free%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
 
 
 [module/pulseaudio]
