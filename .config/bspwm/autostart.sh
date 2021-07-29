@@ -10,7 +10,7 @@ function run {
 # autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/polybar/launch.sh &
-run blueman-tray &
+run blueman-applet &
 run volumeicon &
 run nm-applet &
 run /usr/bin/emacs --daemon &
