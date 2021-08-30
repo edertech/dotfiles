@@ -151,7 +151,7 @@ super + v
 
 # file explorer
 super + z
-	nemo
+	pcmanfm
 
 # lock screen
 super + ctrl + l
@@ -199,12 +199,11 @@ XF86AudioStop
 
 #Brightness up
 XF86MonBrightnessUp
-    xrandr --output $active_monitor --brightness 0.5
+    brightnessctl -d intel_backlight set +5000
 
 #Brightness down
 XF86MonBrightnessDown
-    xbacklight -dec 10
-
+    brightnessctl -d intel_backlight set 5000- 
 
 #################################################################
 #     SCREENSHOTS

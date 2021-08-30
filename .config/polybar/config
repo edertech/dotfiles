@@ -55,7 +55,7 @@ font-5 = Font Awesome 5 Brands:pixelsize=12;2
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = filesystem pulseaudio battery date powermenu
+modules-right = backlight network filesystem pulseaudio battery date powermenu
 
 separator = |
 tray-position = right
@@ -101,6 +101,21 @@ label-separator = |
 
 [module/xwindow]
 type = internal/xwindow
+
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+use-actual-brightness = true
+enable-scroll = true
+
+[module/network]
+type = internal/network
+interface = wlan0
+interval = 3.0
+udspeed-minwidth = 5
+accumulate-stats = true
+unknown-as-up = true
 
 
 [module/filesystem]
