@@ -23,7 +23,7 @@ super + w
 super + Tab
     rofi -show window
 
-# make sxhkd reload its configuration files:
+# make sxhkd restart its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -151,7 +151,7 @@ super + v
 
 # file explorer
 super + z
-	pcmanfm
+    nemo
 
 # lock screen
 super + ctrl + l
