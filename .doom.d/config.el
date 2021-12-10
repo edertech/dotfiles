@@ -27,6 +27,7 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -35,6 +36,8 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+;; set my transparency config
+(doom/set-frame-opacity 70)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
