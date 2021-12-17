@@ -9,7 +9,13 @@ function run {
 
 # autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
-$HOME/.config/polybar/launch.sh &
+
+# polybar ----------------------------------------------
+killall -q polybar
+polybar bspwm-1 2>&1 | tee -a /tmp/polybar1.log & disown
+polybar bspwm-2 2>&1 | tee -a /tmp/polybar2.log & disown
+# ------------------------------------------------------
+
 run /usr/lib/xfce-polkit/xfce-polkit &
 run blueman-applet &
 run volumeicon &
