@@ -7,6 +7,8 @@ fpath=(/usr/share/zsh/site-functions $fpath)
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/  --work-tree=$HOME'
 
+alias ll=ls -l
+
 #######################################################################
 # History Configuration
 #######################################################################
