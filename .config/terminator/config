@@ -1,0 +1,23 @@
+[global_config]
+  window_state = maximise
+[keybindings]
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_darkness = 0.6
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = JetBrains Mono 12
+    show_titlebar = False
+    scrollbar_position = hidden
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
