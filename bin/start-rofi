@@ -1,0 +1,1 @@
+rofi -run-command "zsh -c -i '{cmd}'" -show {run,window}

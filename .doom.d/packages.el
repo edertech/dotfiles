@@ -48,3 +48,9 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+
+;; (package! lsp-dart)
+;; (package! lsp-treemacs)
+;; (package! flycheck)
+;; (package! lsp-mode lsp-dart lsp-treemacs flycheck lsp-ui hover)

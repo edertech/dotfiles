@@ -21,7 +21,7 @@ set clipboard=unnamedplus
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-inoremap ii <ESC>
+inoremap jk <ESC>
 map <Space> <leader>
 nnoremap <leader>sc :nohlsearch<CR>
 

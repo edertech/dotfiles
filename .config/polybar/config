@@ -25,15 +25,13 @@ primary = #1b9fc6
 secondary = #ffffff
 alert = #bd2c40
 
-[bar/example]
+
+[section/base]
+monitor = eDP-1
 width = 100%
 height = 20
 radius = 0.0
 fixed-center = false
-
-wm-restack = bspwm
-override-redirect = true
-
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -57,29 +55,39 @@ font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Brands:pixelsize=12;2
 
-modules-left = bspwm
-modules-center = xwindow
-modules-right = backlight network filesystem pulseaudio battery date powermenu
+modules-left = bspwm i3
+modules-right = backlight pulseaudio battery date powermenu
 
 separator = |
 tray-position = right
 tray-padding = 10
 
 cursor-click = pointer
-eursor-scroll = ns-resize
+cursor-scroll = ns-resize
+
+wm-restack = bspwm i3
+
+
+[bar/edertech-bar-1]
+inherit = section/base
+
+
+[bar/edertech-bar-2]
+inherit = section/base
+monitor = ${env:MONITOR:HDMI-1}
 
 
 [module/bspwm]
 type = internal/bspwm
 
-ws-icon-0 =    I;
-ws-icon-1 =   II;
+ws-icon-0 =    I;
+ws-icon-1 =   II;
 ws-icon-2 =  III;
 ws-icon-3 =   IV;
 ws-icon-4 =    V;
 ws-icon-5 =   VI;
 ws-icon-6 =  VII;
-ws-icon-7 = VIII;
+ws-icon-7 = VIII;
 ws-icon-8 =   IX;
 ws-icon-default = 
 
@@ -103,8 +111,42 @@ label-empty-padding = 2
 label-separator = |
 
 
-[module/xwindow]
-type = internal/xwindow
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
 
 
 [module/backlight]
@@ -112,27 +154,6 @@ type = internal/backlight
 card = intel_backlight
 use-actual-brightness = true
 enable-scroll = true
-
-[module/network]
-type = internal/network
-interface = wlan0
-interval = 3.0
-udspeed-minwidth = 5
-accumulate-stats = true
-unknown-as-up = true
-
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-mount-1 = /home
-
-label-mounted =  %free%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
 
 
 [module/pulseaudio]

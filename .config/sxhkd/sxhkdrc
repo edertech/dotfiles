@@ -16,7 +16,7 @@ super + shift + Return
 	dmenu_run -p 'Run: ' -fn 'JetBrainsMono Nerd Font Bold' -nf 'white' -nb 'black'
 
 # rofi menu
-super + w
+super + p
     rofi -modi run,drun -show run
 
 # rofi opened programs
@@ -38,6 +38,10 @@ super + shift + {q,r}
 # close and kill
 super + shift c
 	bspc node -c
+
+# kill window using mouse
+super + shift k
+	xkill
 
 
 # alternate between the tiled and monocle layout
@@ -141,7 +145,7 @@ super + {Left,Down,Up,Right}
 
 # web browser
 super + b
-	brave
+	brave-browser-beta
 
 super + w
 	qutebrowser

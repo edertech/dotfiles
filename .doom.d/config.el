@@ -25,12 +25,34 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-ir-black)
 
+;; projectile
+(setq projectile-auto-discover nil)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+
+(setq org-publish-project-alist
+      '(("edertech"
+         :base-directory "~/Developer/projetos/bitbucket-repos/edertech/"
+         :base-extension "org"
+         :publishing-directory "~/Developer/projetos/bitbucket-repos/edertech/html/"
+         :recursive t
+         :exclude "org-html-themes/.*"
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4             ; Just the default for this project.
+         :auto-preamble t)
+         ("org-static"
+         :base-directory "~/Org/website"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/public_html/"
+         :recursive t
+         :exclude ".*/org-html-themes/.*"
+         :publishing-function org-publish-attachment)
+      ))
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -38,6 +60,39 @@
 
 ;; set my transparency config
 (doom/set-frame-opacity 70)
+
+
+;; auto-complete config
+;; (require 'auto-complete)
+;; (global-auto-complete-mode t)
+
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+;; (define-key ac-complete-mode-map "\C-j" 'ac-next)
+;; (define-key ac-complete-mode-map "\C-k" 'ac-previous)
+
+;; dart config
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+
+(setq package-selected-packages
+  '(dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company
+    ;; Optional packages
+    lsp-ui company hover))
+
+(when (cl-find-if-not #'package-installed-p package-selected-packages)
+  (package-refresh-contents)
+  (mapc #'package-install package-selected-packages))
+
+(add-hook 'dart-mode-hook 'lsp)
+
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024)
+      company-minimum-prefix-length 1
+      lsp-lens-enable t
+      lsp-signature-auto-activate nil)
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
