@@ -63,7 +63,7 @@
     "window.zoomLevel": 2,
     "extensions.ignoreRecommendations": true,
     "editor.minimap.enabled": false,
-    "glassit.alpha": 146,
+    "glassit.alpha": 181,
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,

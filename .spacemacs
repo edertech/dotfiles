@@ -32,35 +32,87 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(lua
-     clojure
-     typescript
-     yaml
-     haskell
-     vimscript
-     html
-     restclient
-     dap
-     lsp
+   '(
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+     ;; `M-m f e R' (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     ;; auto-completion
      (python :variables
-             python-backend 'lsp
-             python-formatter 'yapf)
-     (clojure :variables
-              clojure-backend 'lsp)
-     auto-completion
-     emacs-lisp
-     semantic
-     restclient
+             python-fill-column 80
+             python-test-runner '(pytest nose))
+     (dart :variables
+           lsp-dart-project-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/"
+           lsp-dart-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/")
+     (javascript :variables
+                 javascript-backend 'lsp
+                 javascript-fmt-tool 'web-beautify
+                 javascript-repl 'skewer
+                 node-add-modules-path t)
+          (typescript :variables
+                 typescript-backend 'lsp)
+     (better-defaults :variables
+                      better-defaults-move-to-beginning-of-first t
+                      better-defaults-move-to-end-of-first t)
+     (ibuffer :variables
+              ibuffer-group-buffers-by 'projects)
+     (lsp :variables lsp-lens-enable t
+          lsp-use-lsp-ui t)
      git
-     better-defaults
-     markdown
-     org
-     (shell :variables
+     helm
+     epub
+     pdf
+     ;; markdown
+     multiple-cursors
+     (org :variables
+          org-enable-epub-support t
+          org-enable-github-support t
+          org-enable-hugo-support t
+          org-enable-reveal-js-support t
+          org-enable-sticky-header t
+          org-enable-appear-support t
+          spaceline-org-clock-p t
+          org-projectile-file "TODOs.org"
+          org-download-image-dir "/home/public/pictures/org/"
+          org-return-follows-link t)     (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil
+                     spell-checking-enable-auto-dictionary t)
      syntax-checking
-     treemacs)
+     semantic
+     major-modes
+     emacs-lisp
+     scheme
+     graphviz
+     yaml
+     shell-scripts
+     (shell :variables
+            shell-default-height 40
+            shell-default-position 'bottom
+            shell-default-shell 'eshell)
+     (html :variables
+           web-fmt-tool 'web-beautify
+           css-enable-lsp t
+           less-enable-lsp t
+           scss-enable-lsp t
+           html-enable-lsp t)
+     (json :variables
+           json-fmt-tool 'web-beautify)
+     (markdown :variables
+               markdown-live-preview-engine 'vmd
+               markdown-mmm-auto-modes '("c"
+                                         "c++"
+                                         "python"
+                                         "rust"
+                                         ("elisp" "emacs-lisp")))
+     (treemacs :variables
+               treemacs-use-follow-mode t
+               treemacs-use-filewatch-mode t)
+     ;;---------------------------------end layer
+     )
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -71,8 +123,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages
-   '(key-chord)
+   dotspacemacs-additional-packages '()
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -97,9 +148,13 @@ It should only modify the values of Spacemacs settings."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
-   ;; If non-nil then enable support for the portable dumper. You'll need
-   ;; to compile Emacs 27 from source following the instructions in file
+   ;; If non-nil then enable support for the portable dumper. You'll need to
+   ;; compile Emacs 27 from source following the instructions in file
    ;; EXPERIMENTAL.org at to root of the git repository.
+   ;;
+   ;; WARNING: pdumper does not work with Native Compilation, so it's disabled
+   ;; regardless of the following setting when native compilation is in effect.
+   ;;
    ;; (default nil)
    dotspacemacs-enable-emacs-pdumper nil
 
@@ -206,6 +261,11 @@ It should only modify the values of Spacemacs settings."
    ;; The minimum delay in seconds between number key presses. (default 0.4)
    dotspacemacs-startup-buffer-multi-digit-delay 0.4
 
+   ;; If non-nil, show file icons for entries and headings on Spacemacs home buffer.
+   ;; This has no effect in terminal or if "all-the-icons" package or the font
+   ;; is not installed. (default nil)
+   dotspacemacs-startup-buffer-show-icons nil
+
    ;; Default major mode for a new empty buffer. Possible values are mode
    ;; names such as `text-mode'; and `nil' to use Fundamental mode.
    ;; (default `text-mode')
@@ -229,8 +289,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(gruvbox-dark-hard
-                         tango-dark
+   dotspacemacs-themes '(ir-black
                          spacemacs-dark
                          spacemacs-light)
 
@@ -250,9 +309,9 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("JetBrainsMono"
+   dotspacemacs-default-font '("Ubuntu Mono"
                                :size 14.0
-                               :weight extra-bold
+                               :weight normal
                                :width normal)
 
    ;; The leader key (default "SPC")
@@ -364,12 +423,12 @@ It should only modify the values of Spacemacs settings."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 70
+   dotspacemacs-active-transparency 60
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 70
+   dotspacemacs-inactive-transparency 60
 
    ;; If non-nil show the titles of transient states. (default t)
    dotspacemacs-show-transient-state-title t
@@ -394,9 +453,9 @@ It should only modify the values of Spacemacs settings."
    ;; Control line numbers activation.
    ;; If set to `t', `relative' or `visual' then line numbers are enabled in all
    ;; `prog-mode' and `text-mode' derivatives. If set to `relative', line
-   ;; numbers are relative. If set to `visual', line numbers are also relative,
-   ;; but lines are only visual lines are counted. For example, folded lines
-   ;; will not be counted and wrapped lines are counted as multiple lines.
+   ;; numbers are relative. If set to `visual', line umbers are also relative,
+   ;; but only visual lines are counted. For example, folded lines will not be
+   ;; counted and wrapped lines are counted as multiple lines.
    ;; This variable can also be set to a property list for finer control:
    ;; '(:relative nil
    ;;   :visual nil
@@ -490,12 +549,15 @@ It should only modify the values of Spacemacs settings."
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
 
-   ;; If non nil activate `clean-aindent-mode' which tries to correct
-   ;; virtual indentation of simple modes. This can interfer with mode specific
+   ;; If non-nil activate `clean-aindent-mode' which tries to correct
+   ;; virtual indentation of simple modes. This can interfere with mode specific
    ;; indent handling like has been reported for `go-mode'.
    ;; If it does deactivate it here.
    ;; (default t)
    dotspacemacs-use-clean-aindent-mode t
+
+   ;; Accept SPC as y for prompts if non-nil. (default nil)
+   dotspacemacs-use-SPC-as-y nil
 
    ;; If non-nil shift your number row to match the entered keyboard layout
    ;; (only in insert state). Currently supported keyboard layouts are:
@@ -514,7 +576,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-pretty-docs nil
 
    ;; If nil the home buffer shows the full path of agenda items
-   ;; and todos. If non nil only the file name is shown.
+   ;; and todos. If non-nil only the file name is shown.
    dotspacemacs-home-shorten-agenda-source nil
 
    ;; If non-nil then byte-compile some of Spacemacs files.
@@ -526,57 +588,34 @@ This function defines the environment variables for your Emacs session. By
 default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
-  (spacemacs/load-spacemacs-env))
+  (spacemacs/load-spacemacs-env)
+)
 
 (defun dotspacemacs/user-init ()
   "Initialization for user code:
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
-If you are unsure, try setting them in `dotspacemacs/user-config' first.")
+If you are unsure, try setting them in `dotspacemacs/user-config' first."
+)
 
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
-dump.")
+dump."
+)
 
 
 (defun dotspacemacs/user-config ()
-  (key-chord-mode 1)
-  (key-chord-define-global "ii" 'evil-normal-state)
-  (set-default-font "JetBrainsMono")
-  (spacemacs/toggle-transparency)
-  "Configuration for user code:
-This function is called at the very end of Spacemacs startup, after layer
-configuration.
-Put your configuration code here, except for variables that should be set
-before packages are loaded.")
+  (setq-default evil-escape-key-sequence "jk")
+  (setq-default evil-escape-mode)
+  (spacemacs/enable-transparency)
+  (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
+  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+)
 
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(evil-want-Y-yank-to-eol nil)
- '(helm-completion-style 'emacs)
- '(package-selected-packages
-   '(company-lua lua-mode groovy-mode groovy-imports pcache typescript-mode import-js grizzl gruvbox-theme atom-one-dark-theme dracula-theme tidal haskell-mode vimrc-mode helm-gtags ggtags dactyl-mode counsel-gtags web-mode web-beautify tagedit slim-mode scss-mode sass-mode pug-mode prettier-js impatient-mode simple-httpd helm-css-scss haml-mode emmet-mode counsel-css counsel swiper ivy company-web web-completion-data add-node-modules-path restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well unfill mwim lsp-ui lsp-python-ms lsp-pyright lsp-origami origami helm-lsp pos-tip dap-mode lsp-treemacs bui lsp-mode flyspell-correct-helm flyspell-correct auto-dictionary yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum which-key vterm volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org terminal-here symon symbol-overlay string-inflection string-edit stickyfunc-enhance srefactor sphinx-doc spaceline-all-the-icons smeargle shell-pop restart-emacs rainbow-delimiters quickrun pytest pyenv-mode py-isort popwin poetry pippel pipenv pip-requirements pcre2el password-generator paradox overseer orgit-forge org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file nose nameless multi-term multi-line mmm-mode markdown-toc magit-section macrostep lorem-ipsum live-py-mode link-hint key-chord indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy font-lock+ flycheck-pos-tip flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr elisp-slime-nav editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word cython-mode company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode blacken auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)
