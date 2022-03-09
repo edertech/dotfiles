@@ -3,11 +3,10 @@
 [keybindings]
 [profiles]
   [[default]]
-    allow_bold = False
-    background_darkness = 0.6
+    background_darkness = 0.75
     background_type = transparent
     cursor_color = "#aaaaaa"
-    font = JetBrains Mono 12
+    font = Monospace 12
     show_titlebar = False
     scrollbar_position = hidden
     use_system_font = False
