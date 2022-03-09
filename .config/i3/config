@@ -69,7 +69,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 
 # lock screen
-bindsym $mod+Control+l exec i3lock -t -i /home/public/pictures/screenloock.jpg
+bindsym $mod+Control+l exec i3lock -t -i ~/screenloock.jpg
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
