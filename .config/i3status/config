@@ -24,6 +24,7 @@ order += "battery all"
 # order += "load"
 # order += "memory"
 order += "tztime local"
+order += "volume master"
 
 load {
         format = " load %1min "
@@ -69,4 +70,12 @@ memory {
 tztime local {
         # format = "%Y-%m-%d %H:%M:%S"
         format = " %d.%m. %H:%M "
+}
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
