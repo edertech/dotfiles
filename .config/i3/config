@@ -154,7 +154,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # apps
 #=============================================================
 bindsym $mod+b exec brave
-bindsym $mod+z exec dolphin
+bindsym $mod+z exec thunar
 bindsym $mod+Shift+e exec emacsclient -c -a 'emacs'
 bindsym $mod+Print exec xfce4-screenshooter
 
