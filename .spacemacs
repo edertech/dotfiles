@@ -42,9 +42,10 @@ This function should only modify configuration layer settings."
      (python :variables
              python-fill-column 80
              python-test-runner '(pytest nose))
-     (dart :variables
-           lsp-dart-project-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/"
-           lsp-dart-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/")
+     (dart :variables dart-backend)
+     ;; (dart :variables
+     ;;       lsp-dart-project-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/"
+     ;;       lsp-dart-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/")
      (javascript :variables
                  javascript-backend 'lsp
                  javascript-fmt-tool 'web-beautify
@@ -65,19 +66,7 @@ This function should only modify configuration layer settings."
      pdf
      ;; markdown
      multiple-cursors
-     (org :variables
-          org-enable-epub-support t
-          org-enable-github-support t
-          org-enable-hugo-support t
-          org-enable-reveal-js-support t
-          org-enable-sticky-header t
-          org-enable-appear-support t
-          spaceline-org-clock-p t
-          org-projectile-file "TODOs.org"
-          org-download-image-dir "/home/public/pictures/org/"
-          org-return-follows-link t)     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+     org
      (spell-checking :variables
                      spell-checking-enable-by-default nil
                      spell-checking-enable-auto-dictionary t)
