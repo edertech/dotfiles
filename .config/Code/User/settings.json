@@ -1,6 +1,6 @@
 {
-    "editor.fontFamily": "Hack",
-    "editor.inlineHints.fontFamily": "Hack",
+    "editor.fontFamily": "Droid Sans Mono",
+    "editor.inlineHints.fontFamily": "Droid Sans Mono",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
@@ -56,14 +56,13 @@
             "after": ["<Esc>"]
         }
     ],
-    "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.linkedEditing": true,
     "terminal.integrated.fontFamily": "monospace",
     "editor.fontSize": 12,
     "window.zoomLevel": 2,
     "extensions.ignoreRecommendations": true,
     "editor.minimap.enabled": false,
-    "glassit.alpha": 181,
+    "glassit.alpha": 136,
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
@@ -75,5 +74,6 @@
         "editor.suggestSelection": "first",
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false
-    }
+    },
+    "workbench.colorTheme": "Darcula - Black Edition"
 }
