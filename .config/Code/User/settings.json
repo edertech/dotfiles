@@ -1,4 +1,5 @@
 {
+    "workbench.colorTheme": "Darcula - Black Edition",
     "editor.fontFamily": "Droid Sans Mono",
     "editor.inlineHints.fontFamily": "Droid Sans Mono",
     "workbench.editorAssociations": {
@@ -6,6 +7,31 @@
     },
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "editor.linkedEditing": true,
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.fontSize": 12,
+    "window.zoomLevel": 2,
+    "extensions.ignoreRecommendations": true,
+    "editor.minimap.enabled": false,
+    "glassit.alpha": 136,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -50,30 +76,4 @@
             ]
         }
     ],
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "editor.linkedEditing": true,
-    "terminal.integrated.fontFamily": "monospace",
-    "editor.fontSize": 12,
-    "window.zoomLevel": 2,
-    "extensions.ignoreRecommendations": true,
-    "editor.minimap.enabled": false,
-    "glassit.alpha": 136,
-    "[dart]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [
-            80
-        ],
-        "editor.selectionHighlight": false,
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false
-    },
-    "workbench.colorTheme": "Darcula - Black Edition"
 }
