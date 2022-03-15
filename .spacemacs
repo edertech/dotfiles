@@ -42,7 +42,7 @@ This function should only modify configuration layer settings."
      (python :variables
              python-fill-column 80
              python-test-runner '(pytest nose))
-     (dart :variables dart-backend)
+     dart
      ;; (dart :variables
      ;;       lsp-dart-project-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/"
      ;;       lsp-dart-sdk-dir "/home/public/dev/tools/flutter/bin/cache/dart-sdk/")
