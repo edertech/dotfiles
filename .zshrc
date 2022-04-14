@@ -1,29 +1,19 @@
-bindkey -e
-zstyle :compinstall filename '/home/ederson/.zshrc'
-autoload -Uz compinit 
-compinit
+# Using powerline
+USE_POWERLINE="true"
 
-fpath=(/usr/share/zsh/site-functions $fpath)
+# Source manjaro-zsh-configuration
+if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+    source /usr/share/zsh/manjaro-zsh-config
+fi
 
+# Using manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+    source /usr/share/zsh/manjaro-zsh-prompt
+fi
+
+# alias
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/  --work-tree=$HOME'
+alias ll="ls -l"
 
-alias ll=ls -l
-
-#######################################################################
-# History Configuration
-#######################################################################
-HISTSIZE=5000               # lines to keep in memory
-HISTFILE=~/.zsh_history     # place to save history
-SAVEHIST=5000               # number of history to save to disk
-setopt  appendhistory       # append history to the history file
-setopt  sharehistory        # share history across terminals
-setopt  incappendhistory    # immediately append to the history file
-
-
-#######################################################################
-# PowerLine Configuration
-#######################################################################
-
-powerline-daemon -q
-. /usr/share/powerline/bindings/zsh/powerline.zsh
-
+# startup apps
+neofetch
