@@ -1,12 +1,11 @@
 [global_config]
-  window_state = maximise
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.75
+    background_darkness = 0.6
     background_type = transparent
     cursor_color = "#aaaaaa"
-    font = Monospace 12
+    font = Monospace 10
     show_titlebar = False
     scrollbar_position = hidden
     use_system_font = False

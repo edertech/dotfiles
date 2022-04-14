@@ -1,8 +1,9 @@
 {
     "workbench.colorTheme": "Darcula - Black Edition",
-    "editor.fontFamily": "Droid Sans Mono",
-    "editor.inlineHints.fontFamily": "Droid Sans Mono",
+    "editor.fontFamily": "monospace",
+    "editor.inlineHints.fontFamily": "Source Code Pro",
     "workbench.editorAssociations": {
+    "editor.fontSize": "12",
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "vim.easymotion": true,
@@ -15,8 +16,6 @@
     ],
     "editor.linkedEditing": true,
     "terminal.integrated.fontFamily": "monospace",
-    "editor.fontSize": 12,
-    "window.zoomLevel": 3,
     "extensions.ignoreRecommendations": true,
     "editor.minimap.enabled": false,
     "glassit.alpha": 156,

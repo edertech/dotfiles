@@ -1,12 +1,13 @@
-# transparency
 window:
-  opacity: 0.6
+  opacity: 0.3
+
+colors:
+  primary:
+    background: '0x000000'
+    foreground: '0xffffff'
 
 # font
 font:
   family: monospace
-  size: 8.0
+  size: 10.0
 
-# fish
-shell:
-    program: /usr/bin/zsh
