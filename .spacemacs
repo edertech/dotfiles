@@ -192,12 +192,43 @@
 
 ;;------------------------ user config -------------------------------------
 (defun dotspacemacs/user-config ()
+  ;; escape edit mode
   (setq-default evil-escape-key-sequence "jk")
   (setq-default evil-escape-mode)
+  ;; enable transparencyk
   (spacemacs/enable-transparency)
   (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
+  ;; wrap on lines
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+  ;; additional keybindings
   (spacemacs/set-leader-keys (kbd "ef") 'lsp-execute-code-action)
+  ;; dart config 
+  (setq package-selected-packages
+        '(dart-mode lsp-mode lsp-treemacs flycheck lsp-ui company hover))
+  (add-hook 'dart-mode-hook 'lsp)
+  (setq gc-cons-threshold (* 100 1024 1024)
+        read-process-output-max (* 1024 1024))
+  ;; org export config
+  (setq org-directory "~/org/")
+  (setq org-publish-project-alist
+        '(("edertech"
+           :base-directory "~/projetos/edertech/"
+           :base-extension "org"
+           :publishing-directory "~/projetos/edertech/html/"
+           :recursive t
+           :exclude "org-html-themes/.*"
+           :publishing-function org-html-publish-to-html
+           :headline-levels 4             ; Just the default for this project.
+           :auto-preamble t)
+          ("org-static"
+           :base-directory "~/Org/website"
+           :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+           :publishing-directory "~/public_html/"
+           :recursive t
+           :exclude ".*/org-html-themes/.*"
+           :publishing-function org-publish-attachment)
+          ))
+
 )
 ;;--------------------------------------------------------------------------
 

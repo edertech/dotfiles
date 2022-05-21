@@ -10,7 +10,7 @@ set $alt Mod1
 set $term terminator
 
 # settings --------------------------------------------------------------
-font pango:Cantarell 12
+font pango:Cantarell 14
 
 default_border pixel 2
 default_floating_border normal
@@ -47,14 +47,14 @@ bindsym $alt+Shift+c        exec xkill
 bindsym $mod+t              exec --no-startup-id pkill picom
 bindsym $mod+Shift+Print    exec --release exec --startup-id i3-scrot -s
 bindsym $mod+Ctrl+m         exec pavucontrol
+bindsym $alt+Control+t      exec lxtask
 bindsym $mod+w              exec qutebrowser
 bindsym $mod+z              exec pcmanfm
 bindsym $mod+Shift+e        exec emacsclient -c -a 'emacs'
 
-bindsym $mod+Control+l      exec i3lock -t -i ~/screenlock.jpg
+bindsym $mod+Control+l      exec i3lock -F -i ~/screenlock.jpg
 bindsym $mod+Control+t      exec --no-startup-id picom -b
 bindsym $mod+Print          exec --release exec --startup-id i3-scrot -w
-bindsym $alt+Control+t      exec lxtask
 bindsym $mod+Control+a      exec lxappearance
 bindsym $mod+Control+c      exec $term -e bc
 bindsym $mod+Control+e      exec leafpad
