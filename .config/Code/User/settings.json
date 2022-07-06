@@ -1,9 +1,9 @@
 {
     "workbench.colorTheme": "Darcula - Black Edition",
-    "editor.fontFamily": "monospace",
+    "editor.fontFamily": "Source Code Pro",
     "editor.inlineHints.fontFamily": "Source Code Pro",
     "workbench.editorAssociations": {
-    "editor.fontSize": "12",
+    "editor.fontSize": "14",
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "vim.easymotion": true,
@@ -18,7 +18,7 @@
     "terminal.integrated.fontFamily": "monospace",
     "extensions.ignoreRecommendations": true,
     "editor.minimap.enabled": false,
-    "glassit.alpha": 156,
+    "glassit.alpha": 205,
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
@@ -75,4 +75,6 @@
             ]
         }
     ],
+    "dart.openDevTools": "flutter",
+    "window.zoomLevel": 2,
 }

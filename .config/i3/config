@@ -45,7 +45,7 @@ bindsym $mod+Shift+c        kill
 bindsym $mod+Return         exec $term
 bindsym $alt+Shift+c        exec xkill
 bindsym $mod+t              exec --no-startup-id pkill picom
-bindsym $mod+Shift+Print    exec --release exec --startup-id i3-scrot -s
+bindsym $mod+Shift+p        exec i3-scrot -s
 bindsym $mod+Ctrl+m         exec pavucontrol
 bindsym $alt+Control+t      exec lxtask
 bindsym $mod+w              exec qutebrowser
@@ -57,7 +57,7 @@ bindsym $mod+Control+t      exec --no-startup-id picom -b
 bindsym $mod+Print          exec --release exec --startup-id i3-scrot -w
 bindsym $mod+Control+a      exec lxappearance
 bindsym $mod+Control+c      exec $term -e bc
-bindsym $mod+Control+e      exec leafpad
+bindsym $mod+Control+e      exec xed
 bindsym $mod+Control+d      exec lxrandr
 bindsym $mod+Control+v      exec vivaldi-stable
 
