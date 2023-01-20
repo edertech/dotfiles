@@ -1,8 +1,0 @@
-! This configuration maps Capslock to the Right key and Control to Capslock
-!
-clear lock
-clear control
-keycode 66 = Control_L
-add control = Control_L
-add Lock = Control_R
-
