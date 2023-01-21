@@ -8,7 +8,7 @@
 * Dotfiles
 #+CAPTION: Desktop Scrot
 #+ATTR_HTML: :alt Desktop Scrot :title Desktop Scrot :align left
-[[https://gitlab.com/edertech/dotfiles/-/blob/master/.screenshots/my-desktop.png]]
+[[https://gitlab.com/edertech/dotfiles/-/raw/master/.screenshots/my-desktop.png]]
 This repository contains my personal dotfiles.  They are stored here for convenience so that I may quickly access them on new machines or new installs.  Also, others may find some of my configurations helpful in customizing their own dotfiles.
 
 * How To Manage Your Own Dotfiles
