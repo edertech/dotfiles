@@ -1,0 +1,124 @@
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
+;; Place your private configuration here! Remember, you do not need to run 'doom
+;; sync' after modifying this file!
+
+
+;; Some functionality uses this to identify you, e.g. GPG configuration, email
+;; clients, file templates and snippets. It is optional.
+(setq user-full-name "Ederson Duarte Itabaiana"
+      user-mail-address "dj.edertech.develop@gmail.com")
+
+;; Doom exposes five (optional) variables for controlling fonts in Doom:
+;;
+;; - `doom-font' -- the primary font to use
+;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
+;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
+;;   presentations or streaming.
+;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
+;;
+
+;; See 'C-h v doom-font' for documentation and more examples of what they
+;; accept. For example:
+;;
+(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
+
+;;
+;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
+;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
+;; refresh your font settings. If Emacs still can't find your font, it likely
+;; wasn't installed correctly. Font issues are rarely Doom issues!
+
+;; There are two ways to load a theme. Both assume the theme is installed and
+;; available. You can either set `doom-theme' or manually load a theme with the
+;; `load-theme' function. This is the default:
+(setq doom-theme 'doom-dark+)
+
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type t)
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
+
+
+;; Whenever you reconfigure a package, make sure to wrap your config in an
+;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
+;;
+;;   (after! PACKAGE
+;;     (setq x y))
+;;
+;; The exceptions to this rule:
+;;
+;;   - Setting file/directory variables (like `org-directory')
+;;   - Setting variables which explicitly tell you to set them before their
+;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
+;;   - Setting doom variables (which start with 'doom-' or '+').
+;;
+;; Here are some additional functions/macros that will help you configure Doom.
+;;
+;; - `load!' for loading external *.el files relative to this one
+;; - `use-package!' for configuring packages
+;; - `after!' for running code after a package has loaded
+;; - `add-load-path!' for adding directories to the `load-path', relative to
+;;   this file. Emacs searches the `load-path' when you load packages with
+;;   `require' or `use-package'.
+;; - `map!' for binding new keys
+;;
+;; To get information about any of these functions/macros, move the cursor over
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
+;; This will open documentation for it, including demos of how they are used.
+;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
+;; etc).
+;;
+;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+;; they are implemented.
+
+
+(add-hook! 'format-all-mode-hook 'format-all-ensure-formatter)
+
+(add-hook! 'java-mode-hook (setq-local format-all-formatters '(("Java" clang-format))))
+
+;;; dart config --------------------------------------------------------------------------------
+(use-package! hover
+  :after dart-mode
+  :config
+  (setq hover-hot-reload-on-save t
+        hover-clear-buffer-on-hot-restart t)
+  (add-hook! 'dart-mode-hook 'lsp (setq-local format-all-formatters '(("Dart" dart-format)))))
+
+(defun wal/find-dart-flutter-sdk-dir ()
+  "Find the Dart Flutter SDK directory."
+  (when-let* ((flutter-bin (executable-find "flutter"))
+              (sdk-dir (string-trim (shell-command-to-string "flutter sdk-path"))))
+    sdk-dir))
+
+(use-package! lsp-dart  :custom
+  (lsp-dart-flutter-sdk-dir (wal/find-dart-flutter-sdk-dir))
+  :after lsp-mode)
+
+;;; ---------------------------------------------------------------------------------------------------
+(use-package company
+  :config
+  (setq company-idle-delay 0)
+  (global-company-mode t))
+
+
+
+;;; override keybindings --------------------------------------------------------------------------------
+(map! :leader
+      ;;; <leader> c --- code
+      (:prefix-map ("c" . "code")
+
+                   (:prefix-map ("f" . "Format-all buffer")
+                    :desc "Format buffer"      "f" #'format-all-buffer
+                    :desc "Format region"      "r" #'format-all-region
+                    )
+                   )
+      (:prefix-map ("o" . "open")
+       (:when (modulep! :ui treemacs)
+        :desc "Project sidebar"               "p" #'+treemacs/toggle
+        :desc "Find file in project rsidebar" "P" #'treemacs-find-file)))
+;;; ---------------------------------------------------------------------------------------------------
