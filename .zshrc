@@ -20,5 +20,5 @@ export XDG_CONFIG_HOME=$HOME/.config
 export CHROME_EXECUTABLE=/var/lib/snapd/snap/bin/chromium
 export FLUTTER_PATH=$HOME/snap/flutter/common/flutter/bin
 export ANDROID_TOOLS=~/Android/Sdk/platform-tools
-export PATH="$PATH:$XDG_CONFIG_HOME/emacs/bin:$HOME/bin:$FLUTTER_PATH:$ANDROID_TOOLS"
+export PATH="$PATH:$XDG_CONFIG_HOME/emacs/bin:$HOME/.emacs.d/bin:$HOME/bin:$FLUTTER_PATH:$ANDROID_TOOLS"
 
