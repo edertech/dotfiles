@@ -154,6 +154,7 @@ bindsym $mod+b workspace back_and_forth
 
 
 # startups -------------------------------------------------------------
+exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id blueman-applet 
 exec --no-startup-id emacs --daemon 
