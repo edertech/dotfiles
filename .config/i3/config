@@ -47,16 +47,16 @@ bindsym $alt+Shift+c        exec xkill
 bindsym $mod+t              exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+m         exec pavucontrol
 bindsym $mod+w              exec qutebrowser
-bindsym $mod+e              exec thunar
+bindsym $mod+e              exec $term -e 'ranger'
 bindsym $mod+Shift+e        exec emacsclient -c -a 'emacs'
 
 bindsym Control+$alt+b      exec i3lock -t -i ~/screenlock.png
 
 bindsym $mod+Control+t      exec --no-startup-id picom -b
-bindsym Print               exec --release exec --startup-id xfce4-screenshot
+bindsym --release Print     exec i3-scrot --select
 
 bindsym $mod+Control+c      exec galculator
-bindsym $mod+Control+e      exec mousepad
+bindsym $mod+Control+e      exec gedit
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -67,6 +67,10 @@ bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
 bindsym XF86AudioStop         exec --no-startup-id playerctl stop
 bindsym XF86AudioNext         exec --no-startup-id playerctl next
 bindsym XF86AudioPrev         exec --no-startup-id playerctl previous
+bindsym XF86HomePage          exec --no-startup-id qutebrowser
+bindsym XF86Mail              exec --no-startup-id geary
+bindsym XF86Calculator        exec --no-startup-id galculator
+bindsym XF86Sleep             exec --no-startup-id i3lock -t -i ~/screenlock.png
 bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl -d intel_backlight set +5000
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backlight set 5000-
 
