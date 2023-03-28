@@ -55,7 +55,8 @@ bindsym $mod+Shift+e        exec emacsclient -c -a 'emacs'
 bindsym Control+$alt+b      exec i3lock -t -i ~/screenlock.png
 
 bindsym $mod+Control+t      exec --no-startup-id picom -b
-bindsym --release Print     exec i3-scrot --select
+bindsym --release Print     exec i3-scrot --desk
+bindsym --release $mod+Print  exec i3-scrot --select
 
 bindsym $mod+Control+c      exec galculator
 bindsym $mod+Control+e      exec gedit
