@@ -35,8 +35,10 @@ bindsym $mod+Escape         reload
 bindsym $mod+Shift+r        restart
 bindsym $mod+Shift+q        exec i3-msg exit
 
-bindsym $mod+Shift+Return   exec --no-startup-id rofi -show drun
-bindsym $alt+Shift+Return   exec --no-startup-id morc_menu 
+bindsym $mod+Shift+Return   exec --no-startup-id rofi -show drun combi
+bindsym $mod+Shift+p        exec --no-startup-id passmenu
+bindsym $alt+Shift+Return   exec --no-startup-id rofi -show window
+
 bindsym $mod+Tab            exec --no-startup-id rofi -show window
 bindsym $mod+Ctrl+b         exec $term -e 'bmenu'
 bindsym $alt+Shift+s        exec --no-startup-id lxappearance 
@@ -166,6 +168,7 @@ exec --no-startup-id setxkbmap -option ctrl:swapcaps
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id $HOME/.screenlayout/primary.sh
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec --no-startup-id $HOME/bin/internal-autostart.sh
 
 # Specific windows -----------------------------------------------------
 for_window [instance="galculator"] floating enable
