@@ -13,7 +13,7 @@ settings:
   content.blocking.method:
     global: both
   content.canvas_reading:
-    global: true
+    global: false
   fonts.default_size:
     global: 12pt
   fonts.downloads:
