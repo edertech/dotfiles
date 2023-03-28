@@ -12,8 +12,8 @@ fi
 
 # ---------------- After that is my config -----------------
 
-alias ll="ls -l"
-alias la="ls -la"
+alias ll="exa -l  --icons"
+alias la="exa -la --icons"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 export XDG_CONFIG_HOME=$HOME/.config
