@@ -35,7 +35,7 @@ bindsym $mod+Escape         reload
 bindsym $mod+Shift+r        restart
 bindsym $mod+Shift+q        exec i3-msg exit
 
-bindsym $mod+Shift+Return   exec --no-startup-id rofi -show drun combi
+bindsym $mod+Shift+Return   exec --no-startup-id rofi -show drun 
 bindsym $mod+Shift+p        exec --no-startup-id passmenu
 bindsym $alt+Shift+Return   exec --no-startup-id rofi -show window
 
