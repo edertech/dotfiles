@@ -6,6 +6,13 @@
 
 config_version: 2
 settings:
+  colors.hints.bg:
+    global: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8),
+      stop:1 rgba(255, 197, 66, 0.8))
+  colors.hints.fg:
+    global: black
+  colors.keyhint.fg:
+    global: '#FFFFFF'
   colors.webpage.darkmode.enabled:
     global: true
   content.blocking.enabled:
@@ -14,12 +21,16 @@ settings:
     global: both
   content.canvas_reading:
     global: false
+  fonts.debug_console:
+    global: default_size default_familyint
   fonts.default_size:
     global: 12pt
   fonts.downloads:
     global: default_size default_family
   fonts.hints:
-    global: bold default_size default_family
+    global: bold 15pt default_family
+  fonts.keyhint:
+    global: default_size default_family
   fonts.web.size.default:
     global: 23
   fonts.web.size.minimum:

@@ -1,9 +1,9 @@
 @theme "/usr/share/rofi/themes/arthur.rasi"
 
 configuration {
-    modi: "window,drun,ssh,combi";
+    modi: "window,drun,run,ssh,combi";
     font: "hack 10";
-    combi-modi: "window,drun,ssh";
+    combi-modi: "window,drun,run,ssh";
     kb-remove-to-eol: "Control+Shift+k";
   	kb-accept-entry: "Control+m,Return,KP_Enter";
 	kb-row-up: "Up,Control+k";

@@ -35,7 +35,7 @@ bindsym $mod+Escape         reload
 bindsym $mod+Shift+r        restart
 bindsym $mod+Shift+q        exec i3-msg exit
 
-bindsym $mod+Shift+Return   exec --no-startup-id rofi -show drun 
+bindsym $mod+Shift+Return   exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+p        exec --no-startup-id passmenu
 bindsym $alt+Shift+Return   exec --no-startup-id rofi -show window
 
@@ -49,17 +49,17 @@ bindsym $alt+Shift+c        exec xkill
 bindsym $mod+t              exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+m         exec pavucontrol
 bindsym $mod+w              exec qutebrowser
-bindsym $mod+e              exec $term -e 'ranger'
+bindsym $mod+e              exec nautilus
+bindsym $mod+Ctrl+e         exec $term -e 'ranger'
 bindsym $mod+Shift+e        exec emacsclient -c -a 'emacs'
 
-bindsym Control+$alt+b      exec i3lock -t -i ~/screenlock.png
+bindsym Ctrl+$alt+b         exec i3lock -t -i ~/screenlock.png
 
 bindsym $mod+Control+t      exec --no-startup-id picom -b
 bindsym --release Print     exec i3-scrot --desk
 bindsym --release $mod+Print  exec i3-scrot --select
 
-bindsym $mod+Control+c      exec galculator
-bindsym $mod+Control+e      exec gedit
+bindsym $mod+Ctrl+c         exec galculator
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -164,8 +164,9 @@ bindsym $mod+b workspace back_and_forth
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id blueman-applet 
-exec --no-startup-id emacs --daemon 
-exec --no-startup-id setxkbmap -option ctrl:swapcaps
+exec --no-startup-id emacs --daemon
+exec --no-startup-id caffeine
+exec --no-startup-id $HOME/bin/ativar-teclado
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id $HOME/.screenlayout/primary.sh
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
