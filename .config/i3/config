@@ -94,16 +94,16 @@ bindsym $mod+a focus        parent
 
 
 # workspaces -----------------------------------------------------------
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1:web"
+set $ws2 "2:dev"
+set $ws3 "3:sys"
+set $ws4 "4:mail"
+set $ws5 "5:mus"
+set $ws6 "6:doc"
+set $ws7 "7:vid"
+set $ws8 "8:w2"
+set $ws9 "9:d2"
+set $ws10 "10:d3"
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
