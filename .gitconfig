@@ -10,3 +10,5 @@
 	st = status
 [init]
 	defaultBranch = master
+[safe]
+	directory = /data/developer/flutter
