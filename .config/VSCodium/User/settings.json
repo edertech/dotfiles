@@ -1,0 +1,97 @@
+{
+    "workbench.colorTheme": "Default High Contrast",
+    "workbench.editor.showTabs": false,
+    "redhat.telemetry.enabled": false,
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
+        }
+    ],
+    "whichkey.bindingOverrides": [
+        {
+            "keys": "o",
+            "name": "Open...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "t",
+                    "name": "Open terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.focus",
+                },
+            ]
+        },
+        {
+            "keys": "c",
+            "name": "Code...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "a",
+                    "name": "Execute Intention Action",
+                    "type": "command",
+                    "command": "editor.action.refactor",
+                },
+                {
+                    "key": "f",
+                    "name": "Format Document",
+                    "type": "command",
+                    "command": "editor.action.formatDocument",
+                },
+                {
+                    "key": "r",
+                    "name": "Rename Symbol",
+                    "type": "command",
+                    "command": "editor.action.rename",
+                },
+                {
+                    "key": "s",
+                    "name": "Surround With",
+                    "type": "command",
+                    "command": "editor.action.surroundWithSnippet",
+                },
+            ]
+        },
+    ],
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    }
+}
