@@ -1,9 +1,14 @@
 {
     "workbench.colorTheme": "Default High Contrast",
     "workbench.editor.showTabs": false,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.linkedEditing": true,
+    "update.showReleaseNotes": false,
     "redhat.telemetry.enabled": false,
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -15,8 +20,26 @@
             ]
         }
     ],
-    "editor.linkedEditing": true,
-    "editor.minimap.enabled": false,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "]",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.nextInFiles"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.prevInFiles"
+            ]
+        },
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -35,7 +58,7 @@
             "commands": [
                 "whichkey.show"
             ]
-        }
+        },
     ],
     "whichkey.bindingOverrides": [
         {
@@ -48,6 +71,24 @@
                     "name": "Open terminal",
                     "type": "command",
                     "command": "workbench.action.terminal.focus",
+                },
+                {
+                    "key": "p",
+                    "name": "Open Project Tree",
+                    "type": "command",
+                    "command": "workbench.action.toggleSidebarVisibility",
+                },
+                {
+                    "key": "P",
+                    "name": "Focus on File in Project Tree",
+                    "type": "command",
+                    "command": "workbench.files.action.focusFilesExplorer",
+                },
+                {
+                    "key": "x",
+                    "name": "Toggle Acitivity Bar",
+                    "type": "command",
+                    "command": "workbench.action.toggleActivityBarVisibility",
                 },
             ]
         },
@@ -93,5 +134,6 @@
         "editor.suggestSelection": "first",
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false
-    }
+    },
+    "workbench.activityBar.visible": false,
 }

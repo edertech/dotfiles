@@ -118,13 +118,24 @@
 		"when": "inFileBrowser"
 	},
 	{
-		"key": "ctrl+capslock ctrl+9",
-		"command": "editor.action.marker.next",
-		"when": "editorFocus"
+		"key": "tab",
+		"command": "tab",
+		"when": "editorTextFocus && !editorTabMovesFocus"
 	},
 	{
-		"key": "alt+f8",
-		"command": "-editor.action.marker.next",
-		"when": "editorFocus"
+		"key": "shift+tab",
+		"command": "outdent",
+		"when": "editorTextFocus && !editorTabMovesFocus"
 	},
+	{
+		"key": "space",
+            "commands": [
+                "whichkey.show"
+            ],
+		"when": "filesExplorerFocus && !inputFocus"
+	},
+	{
+		"key": "ctrl+capslock ctrl+9",
+		"command": "workbench.action.toggleActivityBarVisibility"
+	}
 ]
