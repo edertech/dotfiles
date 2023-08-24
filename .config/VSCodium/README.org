@@ -2,7 +2,7 @@
 #+TITLE: VSCodium 
 
 
-VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.
+[[https://vscodium.com][VSCodium]] is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.
 Here I have my customized settings and key shortcuts to make VSCodium behave like DOOM Emacs using the vim and whichkey plug-ins.
 #+CAPTION: VSCodium Scrot
 #+ATTR_HTML: :alt VSCodium Scrot :title VSCodium Scrot :align left
