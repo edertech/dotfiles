@@ -175,16 +175,6 @@ def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
         if switch_screen == True:
             qtile.cmd_to_screen(i + 1)
 
-keys.extend([
-    # MOVE WINDOW TO NEXT SCREEN
-    Key([mod,"shift"], "Right", lazy.function(window_to_next_screen, switch_screen=True)),
-    Key([mod,"shift"], "Left", lazy.function(window_to_previous_screen, switch_screen=True)),
-
-    # Switch focus of monitors
-    Key([mod], "period", lazy.next_screen(), desc='Move focus to next monitor'),
-    Key([mod], "comma", lazy.prev_screen(), desc='Move focus to prev monitor'),
-])
-
 groups = []
 
 # FOR QWERTY KEYBOARDS
@@ -201,33 +191,16 @@ group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ",]
 group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", ]
 #group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]
 
-for i in range(len(group_names)):
-    groups.append(
-        Group(
-            name=group_names[i],
-            layout=group_layouts[i].lower(),
-            label=group_labels[i],
-        ))
+# for i in range(len(group_names)):
+#     groups.append(
+#         Group(
+#             name=group_names[i],
+#             layout=group_layouts[i].lower(),
+#             label=group_labels[i],
+#         ))
 
+groups = [Group(i) for i in "1234567"]
 
-#Key([mod], lazy.to_screen(i.name), lazy.group[i.name].toscreen()),
-
-for i in groups:
-    keys.extend([
-
-#CHANGE WORKSPACES
-        Key([mod], i.name, lazy.group[i.name].toscreen()),
-
-# MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-
-# MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
-   ])
-
-
-def get_screeen_num(i):
-    return 0 if i < 7 else 1 
 
 def init_layout_theme():
     return {"margin":5,
@@ -488,14 +461,40 @@ def init_screens():
             Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, opacity=0.5))]
 screens = init_screens()
 
+if len(screens) == 2:
+    for i in groups:
+        keys.extend([
+            # Switch to group N
+            Key(
+                [mod], 
+                i.name, 
+                lazy.to_screen(0) if i.name in '12345' else lazy.to_screen(1),
+                lazy.group[i.name].toscreen()
+            ),
 
-# MOUSE CONFIGURATION
-mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size())
-]
+            # Move window to group N
+            Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),),
+        ])
+else:
+    for i in groups:
+        keys.extend([
+            # Switch to group N
+            Key([mod], i.name, lazy.group[i.name].toscreen()),
+
+            # Move window to group N
+            Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),),
+        ])
+
+keys.extend([
+    # MOVE WINDOW TO NEXT SCREEN
+    Key([mod,"shift"], "Right", lazy.function(window_to_next_screen, switch_screen=True)),
+    Key([mod,"shift"], "Left", lazy.function(window_to_previous_screen, switch_screen=True)),
+
+    # Switch focus of monitors
+    Key([mod], "period", lazy.next_screen(), desc='Move focus to next monitor'),
+    Key([mod], "comma", lazy.prev_screen(), desc='Move focus to prev monitor'),
+])
+
 
 dgroups_key_binder = None
 dgroups_app_rules = []
@@ -565,7 +564,7 @@ def set_floating(window):
 floating_types = ["notification", "toolbar", "splash", "dialog"]
 
 
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
