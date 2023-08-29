@@ -193,8 +193,8 @@ group_names = ["1", "2", "3", "4", "5", "6", "7",]
 # FOR AZERTY KEYBOARDS
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
-#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 "]
-group_labels = ["DEV ", "WWW ", "SYS ", "DOC ", "MAIL ", "CHAT ", "MUS ",]
+group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ",]
+#group_labels = ["DEV ", "WWW ", "SYS ", "DOC ", "MAIL ", "CHAT ", "MUS ",]
 #group_labels = ["", "", "", "", "", "", "", "", "", "",]
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
