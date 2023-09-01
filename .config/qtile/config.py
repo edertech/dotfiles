@@ -30,7 +30,7 @@ import re
 import socket
 import subprocess
 from typing import List  # noqa: F401
-from libqtile import layout, bar, widget, hook
+from libqtile import layout, bar, extension, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
 from libqtile.widget import Spacer
@@ -131,6 +131,17 @@ keys = [
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster(),
         ),
+
+# EXTENSION FOR LIST COMMANDS TO BE EXECUTED IN DMENU STYLEA pragha
+    Key([mod], 'm', lazy.run_extension(extension.CommandSet(
+        commands={
+            'keyboard-us':    './bin/ativar-teclado-us',
+            'keyboard-br':    './bin/ativar-teclado-br.sh',
+            'monitor-dell':   './.screenlayout/with-dell.sh',
+            'monitor-hp':     './.screenlayout/with-hp.sh',
+            'monitor-no-one': './.screenlayout/with-no-one.sh',
+        }
+    ))),
 
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
