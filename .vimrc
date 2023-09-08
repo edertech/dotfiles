@@ -4,7 +4,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme industry
 syntax on
-set relativenumber
 set incsearch
 set hlsearch
 set ignorecase
@@ -70,3 +69,9 @@ let g:rehash256 = 1
 set noshowmode
 
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Last settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nornu "turn off relative liner numbers
