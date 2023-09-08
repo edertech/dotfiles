@@ -132,7 +132,7 @@ keys = [
         lazy.layout.increase_nmaster(),
         ),
 
-# EXTENSION FOR LIST COMMANDS TO BE EXECUTED IN DMENU STYLEA pragha
+# EXTENSION FOR LIST COMMANDS TO BE EXECUTED IN DMENU STYLE
     Key([mod], 'm', lazy.run_extension(extension.CommandSet(
         commands={
             'keyboard-us':    './bin/ativar-teclado-us',

@@ -129,13 +129,35 @@
 	},
 	{
 		"key": "space",
-            "commands": [
-                "whichkey.show"
-            ],
+		"commands": [
+			"whichkey.show"
+		],
 		"when": "filesExplorerFocus && !inputFocus"
 	},
 	{
 		"key": "ctrl+capslock ctrl+9",
-		"command": "workbench.action.toggleActivityBarVisibility"
+	},
+	{
+		"key": "ctrl+shift+p",
+		"command": "-workbench.action.showCommands"
+	},
+	// Emulate Alt + X of Doom Emacs
+	{
+		"key": "alt+x",
+		"command": "workbench.action.showCommands"
+	},
+	// Focus on editor when are in terminal ou explorer
+	{
+		"key": "ctrl+capslock ctrl+k",
+		"command": "workbench.action.focusActiveEditorGroup"
+	},
+	// Clear highlight of the vim search
+	{
+		"key": "ctrl+capslock ctrl+shift+c",
+		"command": "vim.remap",
+		"when": "inputFocus && vim.mode == 'Normal'",
+		"args": {
+			"after": [":nohlsearch"]
+		}
 	}
 ]
