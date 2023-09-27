@@ -82,23 +82,23 @@
 (add-hook! 'java-mode-hook (setq-local format-all-formatters '(("Java" clang-format))))
 
 ;;; dart config --------------------------------------------------------------------------------
-(use-package! hover
-  :after dart-mode
-  :config
-  (setq hover-hot-reload-on-save t
-        hover-clear-buffer-on-hot-restart t)
-  (add-hook! 'dart-mode-hook 'lsp (setq-local format-all-formatters '(("Dart" dart-format)))))
-
-(defun wal/find-dart-flutter-sdk-dir ()
-  "Find the Dart Flutter SDK directory."
-  (when-let* ((flutter-bin (executable-find "flutter"))
-              (sdk-dir (string-trim (shell-command-to-string "flutter sdk-path"))))
-    sdk-dir))
-
-(use-package! lsp-dart  :custom
-  (lsp-dart-flutter-sdk-dir (wal/find-dart-flutter-sdk-dir))
-  :after lsp-mode)
-
+;; (use-package! hover
+;;   :after dart-mode
+;;   :config
+;;   (setq hover-hot-reload-on-save t
+;;         hover-clear-buffer-on-hot-restart t)
+;;   (add-hook! 'dart-mode-hook 'lsp (setq-local format-all-formatters '(("Dart" dart-format)))))
+;; 
+;; (defun wal/find-dart-flutter-sdk-dir ()
+;;   "Find the Dart Flutter SDK directory."
+;;   (when-let* ((flutter-bin (executable-find "flutter"))
+;;               (sdk-dir (string-trim (shell-command-to-string "flutter sdk-path"))))
+;;     sdk-dir))
+;; 
+;; (use-package! lsp-dart  :custom
+;;   (lsp-dart-flutter-sdk-dir (wal/find-dart-flutter-sdk-dir))
+;;   :after lsp-mode)
+;; 
 ;;; ---------------------------------------------------------------------------------------------------
 (use-package company
   :config

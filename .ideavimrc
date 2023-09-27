@@ -4,459 +4,277 @@
 
 let mapleader = " " 
 
-  
-
 set clipboard+=unnamed 
-
 set commentary 
-
 set history 
-
 set ignorecase 
-
 set matchpairs 
-
 set multiple-cursors 
-
 set number 
 
 " set relativenumber 
 
 set smartcase 
-
 set surround 
-
 set wrapscan 
 
-  
 
 " IdeaVim only 
-
 set ideajoin=true 
-
 set idearefactormode=visual 
-
 set ideavimsupport= 
 
-  
 
 " WhichKey 
-
 g:WhichKey_SortOrder=by_key 
 
-  
-
-  
 
 " evil-escape 
-
 imap jk <Esc> 
 
-  
 
 " Insert newline above 
-
 nnoremap [<Space> O<Esc>j 
-
 vnoremap [<Space> <Esc>O<Esc>j 
 
 let g:WhichKeyDesc_insert_newline_above = '[<Space> Insert newline above' 
 
 " Insert newline below 
-
 nnoremap ]<Space> o<Esc>k 
-
 vnoremap ]<Space> <Esc>o<Esc>k 
 
 let g:WhichKeyDesc_insert_newline_below = ']<Space> Insert newline below' 
 
-  
 
 " Close all folds 
-
 nmap zm <Action>(CollapseAllRegions) 
 
 " Open all folds 
-
 nmap zr <Action>(ExpandAllRegions) 
 
-  
 
 " doom-escape-hook 
-
 nnoremap <Esc> :<C-u>nohl<CR>:<C-u>action HideAllWindows<CR><Esc> 
 
-  
-
-  
 
 " 
 
 " Hybrid mode 
 
-  
 
 " Go to first character 
-
 inoremap <C-a> <Esc>I 
-
 cnoremap <C-a> <Home> 
 
 " Go left 
-
 inoremap <C-b> <Left> 
 
 " Delete character 
-
 inoremap <C-d> <Del> 
 
 " Go to end of line 
-
 inoremap <C-e> <Esc>A 
-
 cnoremap <C-e> <End> 
 
 " Go right 
-
 inoremap <C-f> <Right> 
 
 " Unbind C-g 
-
 noremap <C-g> <Esc> 
-
 inoremap <C-g> <Nop> 
 
 " Delete to line end 
-
 inoremap <C-k> <Esc>:action EditorDeleteToLineEnd<CR>a 
 
 " Go down 
-
 inoremap <C-n> <Down> 
 
 " Go up 
-
 inoremap <C-p> <Up> 
 
 " Go to previous word 
-
 inoremap <A-b> <Esc>:action EditorPreviousWord<CR>i 
 
 " Go to next word 
-
 inoremap <A-f> <Esc>:action EditorNextWord<CR>a 
 
   
 
   
 
-" 
-
-" +leader 
-
+"--------------------------------------------------------------------------------------
+" +leader  space
+"--------------------------------------------------------------------------------------
   
 
 " Search project 
-
 map <Leader>/ <Action>(FindInPath) 
-
 let g:WhichKeyDesc_search_project1 = '<leader>/ Search project' 
 
 " Find file 
-
 map <Leader>. <Action>(SearchEverywhere) 
-
 let g:WhichKeyDesc_find_file1 = '<leader>. Find file' 
 
-" Jump to bookmark 
-
-map <Leader><CR> <Action>(Bookmarks) 
-
-let g:WhichKeyDesc_jump_to_bookmark = '<leader>⏎ Jump to bookmark' 
 
 " Switch buffer 
-
 map <Leader>\< <Action>(Switcher) 
-
 let g:WhichKeyDesc_switch_buffer = '<leader>< Switch buffer' 
 
 " Switch to last buffer 
-
 map <Leader>` <Action>(GoToLastTab) 
-
 let g:WhichKeyDesc_switch_to_last_buffer = '<leader>` Switch to last buffer' 
 
 " Toggle last popup 
-
 map <Leader>~ <Action>(JumpToLastWindow) 
-
 let g:WhichKeyDesc_toggle_last_popup = '<leader>~ Toggle last popup' 
 
   
 
   
 
-" 
 
+"--------------------------------------------------------------------------------------
 " +buffer 
-
-  
-
+"--------------------------------------------------------------------------------------
 let g:WhichKeyDesc_buffer = '<leader>b +buffer' 
 
 " Switch workspace buffer 
-
 map <leader>bb <Action>(RecentFiles) 
-
 let g:WhichKeyDesc_switch_workspace_buffer = '<leader>bb Switch workspace buffer' 
 
 " Kill buffer 
-
 map <Leader>bd <Action>(CloseContent) 
-
 let g:WhichKeyDesc_kill_buffer1 = '<leader>bd Kill buffer' 
 
 " Kill buffer 
-
 map <Leader>bk <Action>(CloseContent) 
-
 let g:WhichKeyDesc_kill_buffer2 = '<leader>bk Kill buffer' 
 
-" Save buffer 
+" Jump to bookmark 
+map <Leader>bs <Action>(Bookmarks) 
+let g:WhichKeyDesc_jump_to_bookmark = '<leader>⏎ Jump to bookmark' 
 
-noremap <Leader>bs :<C-u>w<CR> 
-
-let g:WhichKeyDesc_save_buffer = '<leader>bs Save buffer' 
 
 " Kill all buffers 
-
 map <Leader>bK <Action>(CloseAllEditors) 
-
 let g:WhichKeyDesc_kill_all_buffers = '<leader>bK Kill all buffers' 
 
 " New empty buffer 
-
 map <Leader>bN <Action>(NewScratchBuffer) 
-
 let g:WhichKeyDesc_new_empty_buffer = '<leader>bN New empty buffer' 
 
 " Kill other buffers 
-
 map <Leader>bO <Action>(CloseAllEditorsButActive) 
-
 let g:WhichKeyDesc_kill_other_buffers = '<leader>bO Kill other buffers' 
 
 " Save all buffers 
-
 noremap <Leader>bS :<C-u>wa<CR> 
-
 let g:WhichKeyDesc_save_all_buffers = '<leader>bS Save all buffers' 
 
   
 
-  
 
-" 
-
+"--------------------------------------------------------------------------------------
 " +code 
-
+"--------------------------------------------------------------------------------------
 let g:WhichKeyDesc_code_leader = '<leader>c +code' 
 
-  
-
-" Execute Intention Action 
-
-map <Leader>ca <Action>(ShowIntentionActions) 
-
-let g:WhichKeyDesc_exec_intention_action = '<leader>ca Execute Intention Action' 
-
-  
+" Quick fix 
+map <Leader>c. <Action>(ShowIntentionActions) 
+let g:WhichKeyDesc_exec_intention_action = '<leader>c. Quick fix' 
 
 " Jump to references 
-
-map <Leader>cD <Action>(ShowUsages) 
-
-let g:WhichKeyDesc_jump_to_refs = '<leader>cD Jump to references' 
-
-  
-
-" Compile 
-
-map <Leader>cc <Action>(CompileDirty) 
-
-let g:WhichKeyDesc_compile = '<leader>cc Compile' 
-
-  
-
-" Jump to definition 
-
-noremap <Leader>cd gd 
-
-let g:WhichKeyDeNsc_jump_to_def1 = 'gd Jump to definition' 
-
-let g:WhichKeyDesc_jump_to_def2 = '<leader>cd Jump to definition' 
-
-  
+map <Leader>ca <Action>(ShowUsages) 
+let g:WhichKeyDesc_jump_to_refs = '<leader>ca Find all references' 
 
 " Format buffer/region 
-
 nmap <Leader>cf <Action>(ReformatCode) 
-
 let g:WhichKeyDesc_format_buffer_region = '<leader>cf Format buffer/region' 
 
-  
+" Compile 
+map <Leader>cc <Action>(CompileDirty) 
+let g:WhichKeyDesc_compile = '<leader>cc Compile' 
+
+" Jump to definition 
+noremap <Leader>cd gd 
+let g:WhichKeyDeNsc_jump_to_def1 = 'gd Jump to definition' 
+let g:WhichKeyDesc_jump_to_def2 = '<leader>cd Jump to definition' 
 
 " Find implementations 
-
 noremap <Leader>ci gi 
-
 map <Leader>ci <Action>(GotoImplementation) 
-
 let g:WhichKeyDesc_find_impls = '<leader>ci Find implementations' 
 
-  
-
-  
-
 " Jump to symbol in current workspace 
-
 map <Leader>cj <Action>(SearchEverywhere) 
-
 let g:WhichKeyDesc_jump_to_symbol_in_current_workspace = '<leader>cj Jump to symbol in current workspace' 
 
-  
-
 " Show documentation 
-
 map <Leader>ck <Action>(QuickJavaDoc) 
-
 let g:WhichKeyDesc_show_doc = '<leader>ck Show documentation' 
-
   
-
 " Organize imports 
-
 map <Leader>co <Action>(OptimizeImports) 
-
 let g:WhichKeyDesc_organize_imports = '<leader>co Organize imports' 
-
   
-
 " Navigate Structure 
-
 nnoremap gn :action FileStructurePopup<CR> 
-
 map <Leader>cn <Action>(FileStructurePopup) 
-
 let g:WhichKeyDesc_organize_imports = '<leader>cn Navigate Structure' 
 
-  
-
 " Parameter Info 
-
 nnoremap gp :action ParameterInfo<CR> 
-
 map <Leader>cp <Action>(ParameterInfo) 
-
 let g:WhichKeyDesc_organize_imports = '<leader>cp Show Parameter Info' 
-
   
-
 " Surround With... 
-
 nnoremap gs :action SurroundWith<CR> 
-
 map <Leader>cs <Action>(SurroundWith) 
-
 let g:WhichKeyDesc_organize_imports = '<leader>cs Surround With...' 
 
-  
-
 " Generate... 
-
 nnoremap gg :action Generate<CR> 
-
 map <Leader>cg <Action>(Generate) 
-
 let g:WhichKeyDesc_organize_imports = '<leader>cg Generate...' 
 
-  
-
-  
-
 " Rename 
-
 map <Leader>cr <Action>(RenameElement) 
-
 let g:WhichKeyDesc_rename = '<leader>cr Rename' 
 
-  
-
 " Find type definition 
-
 map <Leader>ct <Action>(GotoTypeDeclaration) 
-
 let g:WhichKeyDesc_find_type_def = '<leader>ct Find type definition' 
 
-  
-
 " Recompile 
-
 map <Leader>cC <Action>(Compile) 
-
 let g:WhichKeyDesc_recompile = '<leader>cC Recompile' 
 
-  
-
 " Show error description 
-
 map <C-c>!h <Action>(ShowErrorDescription) 
 
-  
-
 " Go to previous error 
-
 nmap [e <Action>(GotoPreviousError) 
-
 let g:WhichKeyDesc_go_to_prev_error1 = '[e Go to previous error' 
-
 nmap <C-c>!p <Action>(GotoPreviousError) 
 
-  
-
 " Go to next error 
-
 nmap ]e <Action>(GotoNextError) 
-
 let g:WhichKeyDesc_go_to_next_error1 = ']e Go to next error' 
-
 nmap <C-c>!n <Action>(GotoNextError) 
-
   
-
 " Go to previous method 
-
 nmap [[ <Action>(MethodUp) 
-
 let g:WhichKeyDesc_go_to_prev_method = '[[ Go to previous method' 
 
-  
-
 " Go to next method 
-
 nmap ]] <Action>(MethodDown) 
-
 let g:WhichKeyDesc_go_to_next_method = ']] Go to next method' 
 
   
 
-  
-
-" 
-
+"--------------------------------------------------------------------------------------
 " +file 
-
-  
+"--------------------------------------------------------------------------------------
 
 let g:WhichKeyDesc_file_leader = '<leader>f +file' 
 
@@ -479,13 +297,11 @@ map <Leader>fr <Action>(RecentFiles)
 let g:WhichKeyDesc_recent_files = '<leader>fr Recent files' 
 
 " Save file 
-
 noremap <Leader>fs :<C-u>w<CR> 
-
 let g:WhichKeyDesc_save_file = '<leader>fs Save file' 
 
-" Copy filename 
 
+" Copy filename 
 map <Leader>fy <Action>(CopyAbsolutePath) 
 
 let g:WhichKeyDesc_copy_filename = '<leader>fy Copy filename' 
