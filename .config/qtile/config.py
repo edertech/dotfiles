@@ -140,6 +140,7 @@ keys = [
             'monitor-dell':   './.screenlayout/with-dell.sh',
             'monitor-hp':     './.screenlayout/with-hp.sh',
             'monitor-no-one': './.screenlayout/with-no-one.sh',
+            'terminal':       'alacritty',
         }
     ))),
 
@@ -468,8 +469,26 @@ widgets_screen2 = init_widgets_screen2()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, opacity=0.5)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, opacity=0.5))]
+    return [
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_screen1(), 
+                size=26, 
+                opacity=0.5
+            ),
+            wallpaper=os.path.join(os.path.expanduser("~"), "MyDocuments/Wallpapers/6.jpg"),
+            wallpaper_mode="fill",
+        ),
+        Screen(
+            top=bar.Bar(
+                widgets=init_widgets_screen2(), 
+                size=26, 
+                opacity=0.5
+            ),
+            wallpaper=os.path.join(os.path.expanduser("~"), "MyDocuments/Wallpapers/wallpaper7.jpg"),
+            wallpaper_mode="fill",
+        )
+    ]
 screens = init_screens()
 
 if len(screens) == 2:

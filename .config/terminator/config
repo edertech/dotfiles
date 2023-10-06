@@ -4,6 +4,7 @@
   [[default]]
     background_darkness = 0.66
     background_type = transparent
+    show_titlebar = False
 [layouts]
   [[default]]
     [[[window0]]]
