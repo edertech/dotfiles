@@ -227,13 +227,7 @@ layout_theme = init_layout_theme()
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2),
-    layout.Columns(**layout_theme),
-    layout.RatioTile(**layout_theme),
     layout.MonadWide(**layout_theme),
-    layout.Matrix(**layout_theme),
-    layout.Bsp(**layout_theme),
-    layout.Floating(**layout_theme),
 ]
 
 # COLORS FOR THE BAR
@@ -365,43 +359,43 @@ def init_widgets_list():
                #          background = colors[1]
                #          ),
                # # battery option 2  from Qtile
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
-               # widget.Battery(
-               #          font="Noto Sans",
-               #          update_interval = 10,
-               #          fontsize = 12,
-               #          foreground = colors[5],
-               #          background = colors[1],
-	           #          ),
-               # widget.TextBox(
-               #          font="FontAwesome",
-               #          text="  ",
-               #          foreground=colors[6],
-               #          background=colors[1],
-               #          padding = 0,
-               #          fontsize=16
-               #          ),
-               # widget.CPUGraph(
-               #          border_color = colors[2],
-               #          fill_color = colors[8],
-               #          graph_color = colors[8],
-               #          background=colors[1],
-               #          border_width = 1,
-               #          line_width = 1,
-               #          core = "all",
-               #          type = "box"
-               #          ),
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
+                widget.Sep(
+                         linewidth = 1,
+                         padding = 10,
+                         foreground = colors[2],
+                         background = colors[1]
+                         ),
+                widget.Battery(
+                         font="Noto Sans",
+                         update_interval = 10,
+                         fontsize = 12,
+                         foreground = colors[5],
+                         background = colors[1],
+	                     ),
+                widget.TextBox(
+                         font="FontAwesome",
+                         text="  ",
+                         foreground=colors[6],
+                         background=colors[1],
+                         padding = 0,
+                         fontsize=16
+                         ),
+                widget.CPUGraph(
+                         border_color = colors[2],
+                         fill_color = colors[8],
+                         graph_color = colors[8],
+                         background=colors[1],
+                         border_width = 1,
+                         line_width = 1,
+                         core = "all",
+                         type = "box"
+                         ),
+                widget.Sep(
+                         linewidth = 1,
+                         padding = 10,
+                         foreground = colors[2],
+                         background = colors[1]
+                         ),
                # widget.TextBox(
                #          font="FontAwesome",
                #          text="  ",
