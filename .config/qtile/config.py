@@ -140,7 +140,9 @@ keys = [
             'monitor-dell':   './.screenlayout/with-dell.sh',
             'monitor-hp':     './.screenlayout/with-hp.sh',
             'monitor-no-one': './.screenlayout/with-no-one.sh',
+            'htop':           './bin/start-htop',
             'terminal':       'alacritty',
+            'bash-top':       './bin/start-bashtop'
         }
     ))),
 
@@ -470,7 +472,7 @@ def init_screens():
                 size=26, 
                 opacity=0.5
             ),
-            wallpaper=os.path.join(os.path.expanduser("~"), "MyDocuments/Wallpapers/6.jpg"),
+            wallpaper=os.path.join(os.path.expanduser("~"), "/documents/Wallpapers/6.jpg"),
             wallpaper_mode="fill",
         ),
         Screen(
@@ -479,7 +481,7 @@ def init_screens():
                 size=26, 
                 opacity=0.5
             ),
-            wallpaper=os.path.join(os.path.expanduser("~"), "MyDocuments/Wallpapers/wallpaper7.jpg"),
+            wallpaper=os.path.join(os.path.expanduser("~"), "/documents/Wallpapers/wallpaper7.jpg"),
             wallpaper_mode="fill",
         )
     ]

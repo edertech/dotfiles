@@ -264,8 +264,10 @@ nnoremap ,c :action RunClass<CR>
 nnoremap ,d :action Debug<CR>
 nnoremap ,o :action StepOver<CR>
 nnoremap ,i :action StepInto<CR>
-nnoremap ,r :action Resume<CR>
+nnoremap ,r :action Run<CR>
 nnoremap ,s :action Stop<CR>
+nnoremap ,u :action Resume<CR>
+
 
 
 "--------------------------------------------------------------------------------------
