@@ -4,7 +4,7 @@ let mapleader = " "
 
 " Enables using the system clipboard from IdeaVim and vice-versa
 set clipboard+=unnamed
-set clipboard+=ideaput
+set clipboard=unnamedplus
 
 " Do incremental searching
 set incsearch
@@ -50,9 +50,6 @@ nmap zm <Action>(CollapseAllRegions)
 
 " Open all folds 
 nmap zr <Action>(ExpandAllRegions) 
-
-" doom-escape-hook 
-nnoremap <Esc> :<C-u>nohl<CR>:<C-u>action HideAllWindows<CR><Esc> 
 
 " 
 " Hybrid mode 
@@ -465,6 +462,11 @@ let g:WhichKeyDesc_new_window = '<leader>of New window'
 nmap <Leader>oF <Action>(OpenProjectWindows) 
 let g:WhichKeyDesc_select_window = '<leader>oF Select window' 
 
+" doom-escape-hook 
+" nnoremap <Esc> :<C-u>nohl<CR>:<C-u>action HideAllWindows<CR><Esc> 
+nmap <Leader>oh <Action>(HideAllWindows) 
+let g:WhichKeyDesc_hide_all_windows = '<leader>oh Hide All Windows' 
+
 " Toggle Project View 
 noremap <Leader>op :<C-u>NERDTreeToggle<CR> 
 let g:WhichKeyDesc_project_sidebar = '<leader>op Toggle Project View' 
@@ -695,3 +697,4 @@ vnoremap w [w
 vnoremap e ]w 
 vnoremap b [b 
 vnoremap ge ]b 
+set clipboard^=ideaput
