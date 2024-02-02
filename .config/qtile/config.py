@@ -138,6 +138,7 @@ keys = [
             'keyboard-us':    './bin/ativar-teclado-us',
             'keyboard-br':    './bin/ativar-teclado-br.sh',
             'monitor-dell':   './.screenlayout/with-dell.sh',
+            'monitor-dell-right':   './.screenlayout/with-dell-right.sh',
             'monitor-hp':     './.screenlayout/with-hp.sh',
             'monitor-no-one': './.screenlayout/with-no-one.sh',
             'htop':           './bin/start-htop',
@@ -481,7 +482,7 @@ def init_screens():
                 size=26, 
                 opacity=0.5
             ),
-            wallpaper=os.path.join(os.path.expanduser("~"), "/documents/Wallpapers/wallpaper7.jpg"),
+            wallpaper=os.path.join(os.path.expanduser("~"), "/documents/Wallpapers/wallpaper5.jpg"),
             wallpaper_mode="fill",
         )
     ]
