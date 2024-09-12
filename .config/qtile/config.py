@@ -32,7 +32,8 @@ import subprocess
 from typing import List  # noqa: F401
 from libqtile import layout, bar, extension, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
-from libqtile.command import lazy
+#from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile.widget import Spacer
 #import arcobattery
 
@@ -140,6 +141,7 @@ keys = [
             'monitor-dell':   './.screenlayout/with-dell.sh',
             'monitor-dell-right':   './.screenlayout/with-dell-right.sh',
             'monitor-hp':     './.screenlayout/with-hp.sh',
+            'monitor-tv':     './.screenlayout/with-tv.sh',
             'monitor-no-one': './.screenlayout/with-no-one.sh',
             'htop':           './bin/start-htop',
             'terminal':       'alacritty',
@@ -217,12 +219,20 @@ group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall"
 groups = [Group(i) for i in "1234567"]
 
 
+# def init_layout_theme():
+#     return {"margin":5,
+#             "border_width":4,
+#             "border_focus": "#5e81ac",
+#             "border_normal": "#4c566a"
+#             }
+
 def init_layout_theme():
-    return {"margin":5,
-            "border_width":4,
-            "border_focus": "#5e81ac",
-            "border_normal": "#4c566a"
-            }
+    return {
+    "border_width": 2,
+    "margin": 8,
+    "border_focus": "00ff00",
+    "border_normal": "000000"
+}
 
 layout_theme = init_layout_theme()
 
@@ -233,6 +243,7 @@ layouts = [
     layout.RatioTile(**layout_theme),
     layout.Max(**layout_theme),
     layout.MonadWide(**layout_theme),
+    layout.TreeTab(**layout_theme),
 ]
 
 # COLORS FOR THE BAR
@@ -484,7 +495,7 @@ def init_screens():
                 size=26, 
                 opacity=0.5
             ),
-            wallpaper=os.path.join(os.path.expanduser("~"), "/documents/Wallpapers/wallpaper5.jpg"),
+            wallpaper=os.path.join(os.path.expanduser("~"), "/documents/Wallpapers/6.jpg"),
             wallpaper_mode="fill",
         )
     ]
