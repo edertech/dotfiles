@@ -4,7 +4,7 @@ import socket
 import subprocess
 from typing import List  # noqa: F401
 from libqtile import layout, bar, extension, widget, hook
-from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen, Rule
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.lazy import lazy
 from libqtile.widget import Spacer
 
@@ -117,7 +117,7 @@ keys = [
             'monitor-no-one': './.screenlayout/with-no-one.sh',
             'htop':           './bin/start-htop',
             'terminal':       my_term,
-            'bash-top':       './bin/start-bashtop'
+            'calculator':     '/usr/bin/qalculate-qt'
         }
     ))),
 
@@ -394,7 +394,6 @@ keys.extend([
 
 
 dgroups_key_binder = None
-dgroups_app_rules = []
 
 
 main = None
@@ -443,6 +442,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='Arandr'),
     Match(wm_class='feh'),
     Match(wm_class='Galculator'),
+    Match(wm_class='qalculate-qt'),
     Match(wm_class='archlinux-logout'),
     Match(wm_class='xfce4-terminal'),
 
