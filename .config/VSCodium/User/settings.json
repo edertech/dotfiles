@@ -1157,5 +1157,9 @@
         "editor.wordBasedSuggestions": "off"
     },
     "workbench.colorTheme": "Dark Red",
+    "window.zoomLevel": 1,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace",
     "workbench.activityBar.location": "hidden",
+    "git.autofetch": true,
 }

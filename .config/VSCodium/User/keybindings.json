@@ -93,11 +93,6 @@
 		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
 	},
 	{
-		"key": "ctrl+l",
-		"command": "acceptSelectedSuggestion",
-		"when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-	},
-	{
 		"key": "ctrl+j",
 		"command": "showNextParameterHint",
 		"when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
@@ -110,11 +105,6 @@
 	{
 		"key": "ctrl+h",
 		"command": "file-browser.stepOut",
-		"when": "inFileBrowser"
-	},
-	{
-		"key": "ctrl+l",
-		"command": "file-browser.stepIn",
 		"when": "inFileBrowser"
 	},
 	{
@@ -148,7 +138,7 @@
 	},
 	// Focus on editor when are in terminal ou explorer
 	{
-		"key": "ctrl+capslock ctrl+k",
+		"key": "alt+k",
 		"command": "workbench.action.focusActiveEditorGroup"
 	},
 	// Clear highlight of the vim search
@@ -159,5 +149,71 @@
 		"args": {
 			"after": [":nohlsearch"]
 		}
+	},
+	{
+		"key": "ctrl+p",
+		"command": "-workbench.action.quickOpen"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "-workbench.action.chat.newChat",
+		"when": "chatIsEnabled && inChat"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "-expandLineSelection",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "-notebook.centerActiveCell",
+		"when": "notebookEditorFocused"
+	},
+	{
+		"key": "ctrl+; l",
+		"command": "-testing.reRunLastRun"
+	},
+	{
+		"key": "ctrl+b",
+		"command": "-workbench.action.toggleSidebarVisibility"
+	},
+	{
+		"key": "ctrl+v",
+		"command": "-editor.action.clipboardPasteAction"
+	},
+	{
+		"key": "ctrl+v",
+		"command": "-filesExplorer.paste",
+		"when": "filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
+	},
+	{
+		"key": "ctrl+capslock ctrl+v",
+		"command": "extension.vim_ctrl+v",
+		"when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
+	},
+	{
+		"key": "ctrl+v",
+		"command": "-extension.vim_ctrl+v",
+		"when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
+	},
+	{
+		"key": "ctrl+capslock ctrl+b",
+		"command": "extension.vim_ctrl+b",
+		"when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
+	},
+	{
+		"key": "ctrl+b",
+		"command": "-extension.vim_ctrl+b",
+		"when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
+	},
+	{
+		"key": "ctrl+capslock ctrl+f",
+		"command": "editor.action.extensioneditor.showfind",
+		"when": "!editorFocus && activeEditor == 'workbench.editor.extension'"
+	},
+	{
+		"key": "ctrl+f",
+		"command": "-editor.action.extensioneditor.showfind",
+		"when": "!editorFocus && activeEditor == 'workbench.editor.extension'"
 	}
 ]
