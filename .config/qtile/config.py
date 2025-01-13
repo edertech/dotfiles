@@ -111,11 +111,9 @@ keys = [
             'keyboard-us':    './bin/ativar-teclado-us',
             'keyboard-br':    './bin/ativar-teclado-br.sh',
             'monitor-dell':   './.screenlayout/with-dell.sh',
-            'monitor-dell-right':   './.screenlayout/with-dell-right.sh',
             'monitor-hp':     './.screenlayout/with-hp.sh',
-            'monitor-tv':     './.screenlayout/with-tv.sh',
             'monitor-no-one': './.screenlayout/with-no-one.sh',
-            'htop':           './bin/start-htop',
+            'warehouse':      'flatpak run io.github.flattool.Warehouse',
             'terminal':       my_term,
             'calculator':     '/usr/bin/qalculate-qt'
         }

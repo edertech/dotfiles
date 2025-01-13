@@ -499,6 +499,11 @@ let g:WhichKeyDesc_project_leader = '<leader>p +project'
 map <Leader>p! <Action>(RunAnything) 
 let g:WhichKeyDesc_run_cmd_in_project_root = '<leader>p! Run cmd in project root' 
 
+
+" Project files
+map <Leader>pf <Action>(SearchEverywhere) 
+let g:WhichKeyDesc_project_files = '<leader>pf Project files' 
+
 " Invalidate project cache 
 map <Leader>pi <Action>(InvalidateCaches) 
 let g:WhichKeyDesc_invalidate_project_cache = '<leader>pi Invalidate project cache' 

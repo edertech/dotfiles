@@ -77,10 +77,10 @@
 ;;--------------------------
 ;;
 
-(after! flycheck
-  (map! :leader
-        (:prefix-map ("c" . "code")
-         "x" flycheck-command-map)))
+;; dictionaries
+(setq ispell-program-name "hunspell")
+(setq ispell-dictionary "portuguese-brazil")
+(setq ispell-hunspell-dict-paths-alist
+      '(("portuguese-brazil" "/usr/share/hunspell/pt_BR.dic" "/usr/share/hunspell/pt_BR.aff")))
 
-
-
+(add-hook 'org-mode-hook 'flyspell-mode)
