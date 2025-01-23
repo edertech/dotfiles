@@ -16,6 +16,13 @@
 
 
 ;;--------------------------
+;; Projectile
+;;--------------------------
+;;
+(projectile-mode +1)
+
+
+;;--------------------------
 ;; TypeScript | JSX
 ;;--------------------------
 
@@ -60,17 +67,6 @@
 (setq typescript-indent-level 2)
 (setq web-mode-markup-indent-offset 2)
 
-;;--------------------------
-;; Projectile
-;;--------------------------
-;;
-(projectile-mode +1)
-
-;; Removing Home from root projectile
-(after! projectile
-  (setq projectile-project-root-files-bottom-up
-        (remove ".git" projectile-project-root-files-bottom-up)))
-
 
 ;;--------------------------
 ;; Others
@@ -79,8 +75,14 @@
 
 ;; dictionaries
 (setq ispell-program-name "hunspell")
-(setq ispell-dictionary "portuguese-brazil")
+(setq ispell-dictionary "english")  ;; Define o padrão como inglês
 (setq ispell-hunspell-dict-paths-alist
       '(("portuguese-brazil" "/usr/share/hunspell/pt_BR.dic" "/usr/share/hunspell/pt_BR.aff")))
 
-(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook
+          (lambda ()
+            (let ((dict (or (cdr (assoc "ispell-dictionary" (org-babel-get-header "ispell-dictionary")))
+                            "english")))  ;; Padrão para inglês
+              (setq ispell-dictionary dict)
+              (flyspell-mode 1))))
+

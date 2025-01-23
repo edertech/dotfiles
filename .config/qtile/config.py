@@ -108,14 +108,15 @@ keys = [
 # EXTENSION FOR LIST COMMANDS TO BE EXECUTED IN DMENU STYLE
     Key([mod], 'm', lazy.run_extension(extension.CommandSet(
         commands={
-            'keyboard-us':    './bin/ativar-teclado-us',
-            'keyboard-br':    './bin/ativar-teclado-br.sh',
-            'monitor-dell':   './.screenlayout/with-dell.sh',
-            'monitor-hp':     './.screenlayout/with-hp.sh',
-            'monitor-no-one': './.screenlayout/with-no-one.sh',
-            'warehouse':      'flatpak run io.github.flattool.Warehouse',
-            'terminal':       my_term,
-            'calculator':     '/usr/bin/qalculate-qt'
+            'keyboard-us':          './bin/ativar-teclado-us',
+            'keyboard-br':          './bin/ativar-teclado-br.sh',
+            'monitor-dell':         './.screenlayout/with-dell.sh',
+            'monitor-arzopa':       './.screenlayout/with-arzopa.sh',
+            'monitor-arzopa-right': './.screenlayout/with-arzopa-right.sh',
+            'monitor-no-one':       './.screenlayout/with-no-one.sh',
+            'warehouse':            'flatpak run io.github.flattool.Warehouse',
+            'terminal':              my_term,
+            'calculator':           '/usr/bin/qalculate-qt'
         }
     ))),
 
