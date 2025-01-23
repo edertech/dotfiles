@@ -1,77 +1,15 @@
 [
+	// Emulate Alt + X of Doom Emacs
 	{
-		"key": "space",
-		"command": "vspacecode.space",
-		"when": "activeEditorGroupEmpty && focusedView == '' && !whichkeyActive && !inputFocus"
+		"key": "alt+x",
+		"command": "workbench.action.showCommands"
 	},
+	// Focus on editor when are in terminal ou explorer
 	{
-		"key": "space",
-		"command": "vspacecode.space",
-		"when": "sideBarFocus && !inputFocus && !whichkeyActive"
+		"key": "alt+k",
+		"command": "workbench.action.focusActiveEditorGroup"
 	},
-	{
-		"key": "tab",
-		"command": "extension.vim_tab",
-		"when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && editorLangId != 'magit'"
-	},
-	{
-		"key": "tab",
-		"command": "-extension.vim_tab",
-		"when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
-	},
-	{
-		"key": "x",
-		"command": "magit.discard-at-point",
-		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-	},
-	{
-		"key": "k",
-		"command": "-magit.discard-at-point"
-	},
-	{
-		"key": "-",
-		"command": "magit.reverse-at-point",
-		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-	},
-	{
-		"key": "v",
-		"command": "-magit.reverse-at-point"
-	},
-	{
-		"key": "shift+-",
-		"command": "magit.reverting",
-		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-	},
-	{
-		"key": "shift+v",
-		"command": "-magit.reverting"
-	},
-	{
-		"key": "shift+o",
-		"command": "magit.resetting",
-		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
-	},
-	{
-		"key": "shift+x",
-		"command": "-magit.resetting"
-	},
-	{
-		"key": "x",
-		"command": "-magit.reset-mixed"
-	},
-	{
-		"key": "ctrl+u x",
-		"command": "-magit.reset-hard"
-	},
-	{
-		"key": "y",
-		"command": "-magit.show-refs"
-	},
-	{
-		"key": "y",
-		"command": "vspacecode.showMagitRefMenu",
-		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode == 'Normal'"
-	},
+	//
 	{
 		"key": "ctrl+j",
 		"command": "workbench.action.quickOpenSelectNext",
@@ -102,118 +40,5 @@
 		"command": "showPrevParameterHint",
 		"when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
 	},
-	{
-		"key": "ctrl+h",
-		"command": "file-browser.stepOut",
-		"when": "inFileBrowser"
-	},
-	{
-		"key": "tab",
-		"command": "tab",
-		"when": "editorTextFocus && !editorTabMovesFocus"
-	},
-	{
-		"key": "shift+tab",
-		"command": "outdent",
-		"when": "editorTextFocus && !editorTabMovesFocus"
-	},
-	{
-		"key": "space",
-		"commands": [
-			"whichkey.show"
-		],
-		"when": "filesExplorerFocus && !inputFocus"
-	},
-	{
-		"key": "ctrl+capslock ctrl+9",
-	},
-	{
-		"key": "ctrl+shift+p",
-		"command": "-workbench.action.showCommands"
-	},
-	// Emulate Alt + X of Doom Emacs
-	{
-		"key": "alt+x",
-		"command": "workbench.action.showCommands"
-	},
-	// Focus on editor when are in terminal ou explorer
-	{
-		"key": "alt+k",
-		"command": "workbench.action.focusActiveEditorGroup"
-	},
-	// Clear highlight of the vim search
-	{
-		"key": "ctrl+capslock ctrl+shift+c",
-		"command": "vim.remap",
-		"when": "inputFocus && vim.mode == 'Normal'",
-		"args": {
-			"after": [":nohlsearch"]
-		}
-	},
-	{
-		"key": "ctrl+p",
-		"command": "-workbench.action.quickOpen"
-	},
-	{
-		"key": "ctrl+l",
-		"command": "-workbench.action.chat.newChat",
-		"when": "chatIsEnabled && inChat"
-	},
-	{
-		"key": "ctrl+l",
-		"command": "-expandLineSelection",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "ctrl+l",
-		"command": "-notebook.centerActiveCell",
-		"when": "notebookEditorFocused"
-	},
-	{
-		"key": "ctrl+; l",
-		"command": "-testing.reRunLastRun"
-	},
-	{
-		"key": "ctrl+b",
-		"command": "-workbench.action.toggleSidebarVisibility"
-	},
-	{
-		"key": "ctrl+v",
-		"command": "-editor.action.clipboardPasteAction"
-	},
-	{
-		"key": "ctrl+v",
-		"command": "-filesExplorer.paste",
-		"when": "filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
-	},
-	{
-		"key": "ctrl+capslock ctrl+v",
-		"command": "extension.vim_ctrl+v",
-		"when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
-	},
-	{
-		"key": "ctrl+v",
-		"command": "-extension.vim_ctrl+v",
-		"when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
-	},
-	{
-		"key": "ctrl+capslock ctrl+b",
-		"command": "extension.vim_ctrl+b",
-		"when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
-	},
-	{
-		"key": "ctrl+b",
-		"command": "-extension.vim_ctrl+b",
-		"when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
-	},
-	{
-		"key": "ctrl+capslock ctrl+f",
-		"command": "editor.action.extensioneditor.showfind",
-		"when": "!editorFocus && activeEditor == 'workbench.editor.extension'"
-	},
-	{
-		"key": "ctrl+f",
-		"command": "-editor.action.extensioneditor.showfind",
-		"when": "!editorFocus && activeEditor == 'workbench.editor.extension'"
-	}
+
 ]
