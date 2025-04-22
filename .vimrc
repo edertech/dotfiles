@@ -4,6 +4,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme industry
 syntax on
+filetype plugin on
+set nocompatible
 set incsearch
 set hlsearch
 set ignorecase
