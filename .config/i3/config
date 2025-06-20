@@ -35,25 +35,25 @@ bindsym $mod+Escape         reload
 bindsym $mod+Shift+r        restart
 bindsym $mod+Shift+q        exec i3-msg exit
 
-bindsym $mod+Shift+Return   exec --no-startup-id rofi -show drun
-bindsym $mod+Shift+p        exec --no-startup-id passmenu
+bindsym $mod+Shift+Return   exec --no-startup-id ~/bin/start-rofi
+bindsym $mod+Shift+p        exec --no-startup-id ~/bin/passmenu
 bindsym $alt+Shift+Return   exec --no-startup-id rofi -show window
 
 bindsym $mod+Tab            exec --no-startup-id rofi -show window
 bindsym $mod+Ctrl+b         exec $term -e 'bmenu'
-bindsym $alt+Shift+s        exec --no-startup-id lxappearance 
+bindsym $alt+Shift+s        exec --no-startup-id lxappearance
 
-bindsym $mod+Shift+c        kill 
+bindsym $mod+Shift+c        kill
 bindsym $mod+Return         exec $term
 bindsym $alt+Shift+c        exec xkill
 bindsym $mod+t              exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+m         exec pavucontrol
-bindsym $mod+w              exec qutebrowser
-bindsym $mod+e              exec nautilus
+bindsym $mod+w              exec brave-browser
+bindsym $mod+e              exec thunar
 bindsym $mod+Ctrl+e         exec $term -e 'ranger'
 bindsym $mod+Shift+e        exec emacsclient -c -a 'emacs'
 
-bindsym Ctrl+$alt+b         exec i3lock -t -i ~/screenlock.png
+bindsym Ctrl+$alt+l         exec xfce4-screensaver-command --lock
 
 bindsym $mod+Control+t      exec --no-startup-id picom -b
 bindsym --release Print     exec i3-scrot --desk
@@ -96,14 +96,14 @@ bindsym $mod+a focus        parent
 # workspaces -----------------------------------------------------------
 set $ws1 "1:web"
 set $ws2 "2:dev"
-set $ws3 "3:sys"
-set $ws4 "4:mail"
-set $ws5 "5:mus"
-set $ws6 "6:doc"
-set $ws7 "7:vid"
-set $ws8 "8:w2"
-set $ws9 "9:d2"
-set $ws10 "10:d3"
+set $ws3 "3:term"
+set $ws4 "4:mus"
+set $ws5 "5:mail"
+set $ws6 "6:files"
+set $ws7 "7:games"
+set $ws8 "8:wk8"
+set $ws9 "9:wk9"
+set $ws10 "10:wk0"
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -162,19 +162,21 @@ bindsym $mod+b workspace back_and_forth
 
 # startups -------------------------------------------------------------
 exec --no-startup-id nm-applet
-exec --no-startup-id pamac-tray
-exec --no-startup-id blueman-applet 
+exec --no-startup-id blueberry-tray
+exec --no-startup-id volumeicon
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id emacs --daemon
-exec --no-startup-id caffeine
-exec --no-startup-id pomatez
-exec --no-startup-id $HOME/bin/ativar-teclado
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id $HOME/.screenlayout/primary.sh
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
-exec --no-startup-id $HOME/bin/internal-autostart.sh
+exec --no-startup-id xfsettingsd --sm-client-disable
+exec --no-startup-id thunar --daemon
+exec --no-startup-id xfce4-notes
+exec --no-startup-id ~/bin/internal-autostart.sh
+exec --no-startup-id ~/bin/enable-keyboard-br
+exec --no-startup-id ~/bin/start-vpn
+
 
 # Specific windows -----------------------------------------------------
-for_window [instance="galculator"] floating enable
+for_window [instance="xcalc"] floating enable
 
 # panel ----------------------------------------------------------------
 bar {

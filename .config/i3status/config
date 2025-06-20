@@ -7,11 +7,11 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
+        output_format = "i3bar"
         colors = true
-        interval = 5
-        color_good = "#2AA198"
-        color_bad = "#586E75"
-        color_degraded = "#DC322F"
+        color_good = "#00FF00"
+        color_degraded = "#FFFF00"
+        color_bad = "#FF0000"
 }
 
 # order += "ipv6"
@@ -23,7 +23,7 @@ general {
 order += "battery all"
 # order += "load"
 # order += "memory"
-order += "tztime local"
+order += "tztime brasil"
 order += "volume master"
 
 load {
@@ -44,7 +44,7 @@ ethernet _first_ {
 
 battery all {
         # format = "%status %percentage %remaining %emptytime"
-        format = " %status %percentage"
+        format = " %status - %percentage"
         format_down = "No battery"
         last_full_capacity = true
         integer_battery_capacity = true
@@ -70,6 +70,11 @@ memory {
 tztime local {
         # format = "%Y-%m-%d %H:%M:%S"
         format = " %d.%m. %H:%M "
+}
+
+tztime brasil {
+    format = "BR: %d.%m. %H:%M "
+    timezone = "America/Sao_Paulo"
 }
 
 volume master {
