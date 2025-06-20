@@ -29,7 +29,7 @@ nnoremap <leader>sc :nohlsearch<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Splits and Buffers 
+" => Splits and Buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>wv :vsp<CR>
 nnoremap <leader>ws :sp<CR>
@@ -37,9 +37,12 @@ nnoremap <leader>wh <C-W>h
 nnoremap <leader>wl <C-W>l
 nnoremap <leader>wk <C-W>k
 nnoremap <leader>wj <C-W>j
-nnoremap <leader>wc :q<CR>
+nnoremap <leader>wd :q<CR>
 nnoremap <leader>bb :buffers<CR>:b
 
+nnoremap <leader>fs :w<CR>
+nnoremap <leader>qq :qa<CR>
+nnoremap <leader>qn :qa!<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Disable arrow keys to learn the hjkl 
