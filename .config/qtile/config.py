@@ -14,7 +14,7 @@ mod1 = "alt"
 mod2 = "control"
 home = os.path.expanduser('~')
 
-wallpaper = "/documents/Wallpapers/6.jpg"
+wallpaper = "~/wp-1.jpg"
 my_term = "alacritty"
 
 
@@ -343,7 +343,6 @@ def init_screens():
                 opacity=0.5
             ),
             wallpaper=os.path.join(os.path.expanduser("~"), wallpaper),
-            wallpaper_mode="fill",
         ),
         Screen(
             top=bar.Bar(
@@ -352,7 +351,6 @@ def init_screens():
                 opacity=0.5
             ),
             wallpaper=os.path.join(os.path.expanduser("~"), wallpaper),
-            wallpaper_mode="fill",
         )
     ]
 screens = init_screens()
