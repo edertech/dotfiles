@@ -1,0 +1,184 @@
+#!/usr/bin/env bash
+#
+# I combine bspw, sxhkd and xfce
+#
+# https://github.com/baskerville/sxhkd
+# https://github.com/baskerville/bspwm
+# https://www.xfce.org
+#################################################################
+
+
+# Note: some hotkeys are not defined here because they are already in the default xfce configuration (e.g. super + and thunar). Also, some hotkeys have been removed from the default xfce configuration so as not to conflict with those defined here
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+### BSPWM HOTKEYS ###
+
+# terminal emulator
+super + Return
+    alacritty
+
+# terminal file manager
+super + ctrl + Return
+    alacritty -e ranger
+
+# run program launcher
+super + shift + Return
+    ~/bin/start-rofi &
+
+alt + shift + Return
+    rofi -show window
+
+#dmenu
+super + shift + d
+    ~/bin/start-dmenu &
+
+# quit
+super + shift + q
+    bspc quit
+
+# restart bspwm
+super + shift + r
+    bspc wm -r
+
+# close and kill
+super + shift + c
+    bspc node -c
+
+# Xkill
+super + shift + k
+    xkill
+
+# alternate between the tiled and monocle layout
+super + m
+    bspc desktop -l next
+
+# STATE/FLAGS
+
+# set the window state
+super + {t,shift + t,s,f}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+
+# FOCUS/SWAP
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous monitor
+super + {comma, period}
+    bspc monitor -f {prev,next}
+
+super + {shift + comma, shift + period}
+    bspc node -s {prev,next}
+
+# focus the last node
+super + Tab
+    bspc node -f last
+
+# back to the last desktop
+super + b
+    bspc desktop -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+    bspc wm -h off; \
+    bspc node {older,newer} -f; \
+    bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} focused:'^{1-9,10}'
+
+# MOVE/RESIVE
+# shrink/expand
+ctrl + alt + h
+    bspc node -z {left -20 0} || bspc node -z {right -20 0}
+ctrl + alt + j
+    bspc node -z {bottom 0 20} || bspc node -z {top 0 20}
+ctrl + alt + k
+    bspc node -z {bottom 0 -20} || bspc node -z {top 0 -20}
+ctrl + alt + l
+    bspc node -z {left 20 0} || bspc node -z {right 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# launch browser
+super + w
+    brave-browser
+
+#################################################################
+#    DEV TOOLS
+#################################################################
+super + d; e
+    emacsclient -c -a 'emacs'
+super + d; m
+    mousepad
+super + d; v
+    ~/Apps/VSCodium.AppImage
+
+
+#################################################################
+#    OTHER TOOLS
+#################################################################
+super + p; l
+    xfce4-screensaver-command --lock
+super + p; c
+    xcalc
+super + p; k
+    ~/bin/enable-keyboard-br
+super + p; m
+    xfce4-appfinder
+super + p; p
+    ~/bin/passmenu &
+super + p; r
+    xfce4-panel -r &
+super + p; t
+    xfce4-taskmanager
+
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+    amixer set Master 10%+
+
+#Lowers volume
+XF86AudioLowerVolume
+    amixer set Master 10%-
+
+#Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+#PLAY
+XF86AudioPlay
+    playerctl play-pause
+
+#Next
+XF86AudioNext
+    playerctl next
+
+#previous
+XF86AudioPrev
+    playerctl previous
+
+#Stop
+XF86AudioStop
+    playerctl stop
+
+#Brightness up
+XF86MonBrightnessUp
+    brightnessctl -d intel_backlight set +5000
+
+
+#Brightness down
+XF86MonBrightnessDown
+    brightnessctl -d intel_backlight set 5000-
