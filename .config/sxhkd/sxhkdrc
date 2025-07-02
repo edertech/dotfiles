@@ -61,7 +61,6 @@ super + m
 super + {t,shift + t,s,f}
     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-
 # FOCUS/SWAP
 
 # focus the node in the given direction
@@ -122,6 +121,13 @@ super + d; m
 super + d; v
     ~/Apps/VSCodium.AppImage
 
+#################################################################
+#    CHANGE CONFIGS
+#################################################################
+super + c; b
+    ~/bin/enable-keyboard-br
+super + c; u
+    ~/bin/enable-keyboard-us
 
 #################################################################
 #    OTHER TOOLS
@@ -130,12 +136,11 @@ super + p; l
     xfce4-screensaver-command --lock
 super + p; c
     xcalc
-super + p; k
-    ~/bin/enable-keyboard-br
 super + p; m
     xfce4-appfinder
 super + p; p
-    ~/bin/passmenu &
+    alacritty -e ~/bin/passrofi
+
 super + p; r
     xfce4-panel -r &
 super + p; t

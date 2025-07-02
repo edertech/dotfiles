@@ -6,7 +6,7 @@
     "editor.scrollbar.vertical": "hidden",   
     "editor.linkedEditing": true,
     "editor.fontFamily": "'JetBrains Mono Regular', 'monospace', monospace",
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorTheme": "Black",
     "workbench.activityBar.location": "hidden",
