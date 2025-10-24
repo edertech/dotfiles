@@ -3,8 +3,10 @@
 let mapleader = " " 
 
 " Enables using the system clipboard from IdeaVim and vice-versa
-set clipboard+=unnamed
 set clipboard=unnamedplus
+
+" Makes 'p' visual mode not destroy the last yank
+xnoremap p pgvy
 
 " Do incremental searching
 set incsearch
