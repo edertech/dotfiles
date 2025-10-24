@@ -2,7 +2,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme industry
 syntax on
 filetype plugin on
 set nocompatible
