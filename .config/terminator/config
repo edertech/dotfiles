@@ -2,9 +2,15 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.6
+    background_darkness = 0.56
     background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = JetBrains Mono Bold 14
     show_titlebar = False
+    login_shell = True
+    use_custom_command = True
+    custom_command = tmux
+    use_system_font = False
 [layouts]
   [[default]]
     [[[window0]]]
@@ -13,4 +19,5 @@
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
 [plugins]

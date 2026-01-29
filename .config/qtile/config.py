@@ -36,10 +36,10 @@ keys = [
 
 # SUPER + FUNCTION KEYS
     Key([mod], "f", lazy.window.toggle_fullscreen()),
-    Key([mod], "q", lazy.window.kill()),
 
 
 # SUPER + SHIFT KEYS
+    Key([mod, "shift"], "c", lazy.window.kill()),
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
 
@@ -114,7 +114,7 @@ keys = [
             'monitor-arzopa':       './.screenlayout/with-arzopa.sh',
             'monitor-arzopa-right': './.screenlayout/with-arzopa-right.sh',
             'monitor-no-one':       './.screenlayout/with-no-one.sh',
-            'warehouse':            'flatpak run io.github.flattool.Warehouse',
+            'explorer':            'nautilus',
             'terminal':              my_term,
             'calculator':           '/usr/bin/qalculate-qt'
         }
@@ -191,10 +191,9 @@ layouts = [
 ]
 
 # COLORS FOR THE BAR
-#Theme name : ArcoLinux Default
 def init_colors():
     return [["#2F343F", "#2F343F"], # color 0
-            ["#2F343F", "#2F343F"], # color 1
+            ["#000000", "#000000"], # color 1
             ["#c0c5ce", "#c0c5ce"], # color 2
             ["#fba922", "#fba922"], # color 3
             ["#3384d0", "#3384d0"], # color 4

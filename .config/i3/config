@@ -7,7 +7,7 @@
 # variables
 set $mod Mod4
 set $alt Mod1
-set $term alacritty 
+set $term terminator 
 
 # settings --------------------------------------------------------------
 font pango:Cantarell 14
@@ -19,49 +19,51 @@ hide_edge_borders none
 
 # Settings for i3 gaps
 
-
 # class             border  bground text    indicator   child_border
 client.focused      #4C7899 #285577 #FFFFFF #2E9EF4     #FF0000
 
 floating_modifier $mod
 
+set $refresh_i3status killall -SIGUSR1 i3status
+
 # keybindings ----------------------------------------------------------
 
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
+# SUPER + ... KEYS
+bindsym $mod+Escape           reload
+bindsym $mod+u                border none
+bindsym $mod+y                border pixel 1
+bindsym $mod+n                border normal
+bindsym $mod+d                exec xfce4-appfinder
+bindsym $mod+Tab              exec --no-startup-id rofi -show window
+bindsym $mod+Return           exec $term
+bindsym $mod+t                exec --no-startup-id pkill picom
 
-bindsym $mod+Escape         reload
-bindsym $mod+Shift+r        restart
-bindsym $mod+Shift+q        exec i3-msg exit
+# SUPER + SHIFT KEYS
+bindsym $mod+Shift+c          kill
+bindsym $mod+Shift+r          restart
+bindsym $mod+Shift+q          exec --no-startup-id ~/bin/i3-logout.sh
+bindsym $mod+Shift+Return     exec --no-startup-id ~/bin/start-rofi
+bindsym $mod+Shift+p          exec --no-startup-id ~/bin/passrofi
+bindsym $mod+Shift+e          exec $term -e 'ranger'
+bindsym $mod+Shift+t          exec --no-startup-id picom -b
 
-bindsym $mod+Shift+Return   exec --no-startup-id ~/bin/start-rofi
-bindsym $mod+Shift+p        exec --no-startup-id ~/bin/passmenu
-bindsym $alt+Shift+Return   exec --no-startup-id rofi -show window
+# SUPER + CONTROL KEYS
+bindsym $mod+Ctrl+Return      exec --no-startup-id ~/bin/i3-apps.sh
 
-bindsym $mod+Tab            exec --no-startup-id rofi -show window
-bindsym $mod+Ctrl+b         exec $term -e 'bmenu'
-bindsym $alt+Shift+s        exec --no-startup-id lxappearance
 
-bindsym $mod+Shift+c        kill
-bindsym $mod+Return         exec $term
-bindsym $alt+Shift+c        exec xkill
-bindsym $mod+t              exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+m         exec pavucontrol
-bindsym $mod+w              exec brave-browser
-bindsym $mod+e              exec thunar
-bindsym $mod+Ctrl+e         exec $term -e 'ranger'
-bindsym $mod+Shift+e        exec emacsclient -c -a 'emacs'
+# ALT + SHIFT KEYS
+bindsym $alt+Shift+c          exec xkill
+bindsym $alt+Shift+s          exec --no-startup-id xfce4-appearance-settings
+bindsym $alt+Shift+Return     exec --no-startup-id rofi -show window
 
-bindsym Ctrl+$alt+l         exec xfce4-screensaver-command --lock
+bindsym $mod+w                exec brave-browser
+bindsym $mod+e                exec thunar
 
-bindsym $mod+Control+t      exec --no-startup-id picom -b
-bindsym --release Print     exec i3-scrot --desk
-bindsym --release $mod+Print  exec i3-scrot --select
+# CTROL + ALT + ... KEYS
+bindsym Ctrl+$alt+l           exec xfce4-screensaver-command --lock
 
-bindsym $mod+Ctrl+c         exec galculator
 
-set $refresh_i3status killall -SIGUSR1 i3status
+# MULTIMEDIA KEYS
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -70,13 +72,14 @@ bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
 bindsym XF86AudioStop         exec --no-startup-id playerctl stop
 bindsym XF86AudioNext         exec --no-startup-id playerctl next
 bindsym XF86AudioPrev         exec --no-startup-id playerctl previous
-bindsym XF86HomePage          exec --no-startup-id qutebrowser
-bindsym XF86Mail              exec --no-startup-id geary
+bindsym XF86HomePage          exec --no-startup-id brave
+bindsym XF86Mail              exec --no-startup-id evolution
 bindsym XF86Calculator        exec --no-startup-id galculator
-bindsym XF86Sleep             exec --no-startup-id i3lock -t -i ~/screenlock.png
+bindsym XF86Sleep             exec --no-startup-id ~/bin/i3-logout.sh
 bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl -d intel_backlight set +5000
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backlight set 5000-
 
+# LAYOUT KEYS
 bindsym $mod+h              focus left
 bindsym $mod+j              focus down
 bindsym $mod+k              focus up
@@ -94,27 +97,38 @@ bindsym $mod+a focus        parent
 
 
 # workspaces -----------------------------------------------------------
-set $ws1 "1:web"
-set $ws2 "2:dev"
-set $ws3 "3:term"
-set $ws4 "4:mus"
-set $ws5 "5:mail"
-set $ws6 "6:files"
-set $ws7 "7:games"
-set $ws8 "8:wk8"
-set $ws9 "9:wk9"
-set $ws10 "10:wk0"
+#set $ws1  "1"
+#set $ws2  "2"
+#set $ws3  "3"
+#set $ws4  "4"
+#set $ws5  "5"
+#set $ws6  "6"
+#set $ws7  "7"
+#set $ws8  "8"
+#set $ws9  "9"
+#set $ws10 "10"
 
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+set $ws1  "1:Web"    
+set $ws2  "2:Dev" 
+set $ws3  "3:Ter"      
+set $ws4  "4:Mus"      
+set $ws5  "5:Mai"      
+set $ws6  "6:Fil"
+set $ws7  "7:Gam"
+set $ws8  "8:Hdmi1"
+set $ws9  "9:Hdmi2"
+set $ws10 "10:Hdmi3"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 workspace 1 output primary
 workspace 2 output primary
@@ -126,16 +140,16 @@ workspace 7 output primary
 workspace 8 output HDMI-1
 workspace 9 output HDMI-1
 
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 mode "resize" {
         bindsym h resize shrink width 4 px or 10 ppt
@@ -160,28 +174,37 @@ bindsym $mod+m bar mode toggle
 bindsym $mod+b workspace back_and_forth
 
 
-# startups -------------------------------------------------------------
-exec --no-startup-id nm-applet
-exec --no-startup-id blueberry-tray
+
+# Autostart: Applets e Tray -------------------------------------------
+exec --no-startup-id nm-applet 
+exec --no-startup-id blueman-applet 
 exec --no-startup-id volumeicon
+exec --no-startup-id caffeine-indicator 
+
+# Autostart: XFCE Components -------------------------------------------
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id emacs --daemon
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id xfsettingsd --sm-client-disable
-exec --no-startup-id thunar --daemon
+exec --no-startup-id xfce4-notifyd
 exec --no-startup-id xfce4-notes
+exec --no-startup-id thunar --daemon
+exec --no-startup-id xfce4-screensaver 
+
+# Autostart: Personal / Custom -----------------------------------------
+exec --no-startup-id emacs --daemon
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id picom -b
 exec --no-startup-id ~/bin/internal-autostart.sh
 exec --no-startup-id ~/bin/enable-keyboard-br
 exec --no-startup-id ~/bin/start-vpn
 
 
-# Specific windows -----------------------------------------------------
+# Specific windows rules  ----------------------------------------------
 for_window [instance="xcalc"] floating enable
+for_window [instance="galculator"] floating enable
 
 # panel ----------------------------------------------------------------
 bar {
     position top
-    #i3bar_command i3bar
     status_command i3status
     strip_workspace_numbers yes
 }

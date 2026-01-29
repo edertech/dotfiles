@@ -6,10 +6,8 @@
     "editor.scrollbar.vertical": "hidden",   
     "editor.linkedEditing": true,
     "editor.fontFamily": "'JetBrains Mono Regular', 'monospace', monospace",
-    "editor.fontSize": 13,
+    "editor.fontSize": 16,
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Black",
-    "workbench.activityBar.location": "hidden",
     "update.showReleaseNotes": false,
     "redhat.telemetry.enabled": false,
     "git.autofetch": true,
@@ -133,6 +131,18 @@
         },
     ],
 
+    // -- LeaderKey overrides
+    "leaderkey.overrides.user": {
+        "SPC f f": {
+            "name": "Find files",
+            "command": "workbench.action.quickOpen"
+        },
+        "SPC s p": {
+            "name": "Search Project",
+            "command": "workbench.action.findInFiles"
+        },
+    },
+
 
     // -- Dart configs -----------------------------------------------
     "[dart]": {
@@ -146,4 +156,17 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": "off"
     },
+    "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": true
+    },
+    "github.copilot.authProvider": "github",
+    "github.copilot.advanced": {
+        "authProvider": "github"
+    },
+    "workbench.secondarySideBar.defaultVisibility": "visible",
+    "chat.disableAIFeatures": false,
+    "svelte.enable-ts-plugin": true,
 }
