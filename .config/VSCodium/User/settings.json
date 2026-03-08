@@ -167,6 +167,7 @@
         "authProvider": "github"
     },
     "workbench.secondarySideBar.defaultVisibility": "visible",
+    "window.zoomLevel": 0,
     "chat.disableAIFeatures": false,
     "svelte.enable-ts-plugin": true,
 }
