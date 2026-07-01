@@ -15,7 +15,6 @@ set shiftwidth=4
 set tabstop=4
 set nobackup
 set wildmenu
-set clipboard+=unnamed
 set clipboard=unnamedplus
 
 
@@ -25,6 +24,14 @@ set clipboard=unnamedplus
 inoremap jk <ESC>
 map <Space> <leader>
 nnoremap <leader>sc :nohlsearch<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Splits and Buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>bn :bnext<CR> 
+nnoremap <leader>bp :bprevious<CR>
+nnoremap <leader>bd :bd<CR> " close buffer without close window
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
