@@ -7,7 +7,7 @@
 # variables
 set $mod Mod4
 set $alt Mod1
-set $term alacritty
+set $term terminator
 
 # settings --------------------------------------------------------------
 font pango:Cantarell 14
@@ -109,16 +109,16 @@ bindsym $mod+a focus        parent
 
 
 # workspaces -----------------------------------------------------------
-set $ws1  "1:Web"    
-set $ws2  "2:Dev" 
-set $ws3  "3:Ter"      
-set $ws4  "4:Mus"      
-set $ws5  "5:Mai"      
-set $ws6  "6:Fil"
-set $ws7  "7:Gam"
-set $ws8  "8:Hdmi1"
-set $ws9  "9:Hdmi2"
-set $ws10 "10:Hdmi3"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -177,11 +177,13 @@ bindsym $mod+b workspace back_and_forth
 
 
 # Autostart: Applets e Tray -------------------------------------------
+exec_always --no-startup-id autotiling
 exec --no-startup-id nm-applet 
 exec --no-startup-id blueman-applet 
 exec --no-startup-id volumeicon
 exec --no-startup-id caffeine-indicator 
 exec --no-startup-id dunst 
+
 
 # Autostart: Personal / Custom -----------------------------------------
 exec --no-startup-id emacs --daemon
@@ -190,11 +192,15 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 exec --no-startup-id ~/bin/internal-autostart.sh
 exec --no-startup-id ~/bin/enable-keyboard-br
 exec --no-startup-id ~/bin/start-vpn
+exec --no-startup-id conky
 
 
 # Specific windows rules  ----------------------------------------------
 for_window [instance="xcalc"] floating enable
 for_window [instance="galculator"] floating enable
+for_window [class="protonvpn-app"] move to workspace $ws1
+for_window [class="conky"] move to workspace $ws1
+
 
 # panel ----------------------------------------------------------------
 bar {
@@ -202,3 +208,4 @@ bar {
     status_command i3status
     strip_workspace_numbers yes
 }
+
